@@ -4,7 +4,7 @@ import Navbar from "@/layouts/default/DefaultHeader/Navbar";
 
 function DefaultLayout() {
     return (
-        <div className="flex h-(--header-h) items-center justify-between px-10">
+        <div className="fixed top-0 z-99999 flex h-(--header-h) w-screen items-center justify-between bg-white px-10">
             <Logo />
             <Navbar />
             <ContactBtn />

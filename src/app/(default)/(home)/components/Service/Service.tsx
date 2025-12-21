@@ -1,3 +1,5 @@
+import ServiceItem from "@/app/(default)/(home)/components/Service/ServiceItem";
+
 function Service() {
     return (
         <div>
@@ -14,6 +16,11 @@ function Service() {
                             strategy and creativity user experiences.{" "}
                         </strong>
                     </p>
+                </div>
+                <div className="mt-14 grid grid-cols-3 gap-4">
+                    <ServiceItem />
+                    <ServiceItem isPurple />
+                    <ServiceItem />
                 </div>
             </div>
         </div>
