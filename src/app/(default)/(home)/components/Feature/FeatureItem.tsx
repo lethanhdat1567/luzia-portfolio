@@ -10,10 +10,10 @@ function FeatureItem() {
                 src={images.feature}
             />
             <div className="absolute bottom-6 left-6 text-white">
-                <h3>LumeX</h3>
+                <h3 className="mb-2 text-xl font-medium">LumeX</h3>
                 <div className="flex items-center gap-2">
-                    <div className="rounded-xl border p-2">SaaS</div>
-                    <div className="rounded-xl border p-2">
+                    <div className="rounded-xl border p-2 text-sm">SaaS</div>
+                    <div className="rounded-xl border p-2 text-sm">
                         Dashboard Design
                     </div>
                 </div>

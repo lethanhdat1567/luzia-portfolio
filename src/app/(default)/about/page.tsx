@@ -8,13 +8,15 @@ function About() {
         <div className="py-30">
             <div className="app-container">
                 <p className="mb-10 max-w-3xl text-4xl font-medium text-gray-500">
-                    Michael Carter crafts strategic, visually compelling digital
-                    experiences{" "}
+                    Tôi là Tuấn Phát,{" "}
                     <strong className="font-medium text-black">
-                        that drive impact and engagement
-                    </strong>
+                        người đồng hành cùng khách hàng trong việc lựa chọn và
+                        giao dịch bất động sản
+                    </strong>{" "}
+                    với tiêu chí minh bạch, an toàn và giá trị lâu dài.
                 </p>
             </div>
+
             <Me />
             <Gallery />
             <Experiment />

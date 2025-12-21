@@ -26,7 +26,7 @@ function Gallery() {
                 >
                     <p className="flex items-center justify-center gap-2 text-sm text-gray-600">
                         <Eye size={16} />
-                        Click to view full gallery
+                        Click vào đây để xem thêm ảnh
                     </p>
                 </div>
 
@@ -59,7 +59,7 @@ function Gallery() {
                     }`}
                 >
                     <p className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                        <Images size={14} />2 images available
+                        <Images size={14} />2 ảnh có sẵn
                     </p>
                 </div>
             </div>

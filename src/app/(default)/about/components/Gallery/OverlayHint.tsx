@@ -23,7 +23,7 @@ function OverlayHint({ isHovering }: { isHovering: boolean }) {
                             : "translate-y-2 opacity-0"
                     }`}
                 >
-                    View Gallery
+                    Xem thư viện
                 </p>
                 <div
                     className={`mt-2 rounded-full bg-white/90 px-4 py-2 backdrop-blur-sm transition-all delay-100 duration-300 ${
@@ -33,7 +33,7 @@ function OverlayHint({ isHovering }: { isHovering: boolean }) {
                     }`}
                 >
                     <span className="text-sm font-medium text-gray-800">
-                        Click to expand
+                        Nhấn để phóng to
                     </span>
                 </div>
             </div>

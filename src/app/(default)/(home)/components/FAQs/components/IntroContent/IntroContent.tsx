@@ -4,18 +4,22 @@ import { Separator } from "@/components/ui/separator";
 function IntroContent() {
     return (
         <div>
-            <div className="flex items-center gap-2">
-                <h2 className="text-xl font-medium text-gray-600">FAQs</h2>
-                <Separator />
+            <div className="flex w-full items-center gap-2">
+                <h2 className="shrink-0 text-xl font-medium text-gray-600">
+                    Cam kết
+                </h2>
+                <Separator className="w-[90%]!" />
             </div>
             <p className="mt-4 mb-10 text-3xl font-medium text-gray-500">
-                Answers to common questions to help you understand{" "}
+                Tôi đồng hành cùng bạn trong việc{" "}
                 <strong className="font-medium text-black">
-                    the process and how we can work together
-                </strong>
+                    lựa chọn, đánh giá và giao dịch bất động sản
+                </strong>{" "}
+                với tiêu chí rõ ràng về pháp lý, tiềm năng và giá trị lâu dài.
             </p>
+
             <Button size={"xl"} className="shadow-xl">
-                Email me
+                Liên hệ tôi
             </Button>
         </div>
     );

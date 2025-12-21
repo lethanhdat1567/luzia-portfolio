@@ -4,7 +4,12 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function TabItem() {
+type TabItemProps = {
+    question: string;
+    answer: string;
+};
+
+function TabItem({ question, answer }: TabItemProps) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -14,7 +19,7 @@ function TabItem() {
         >
             <div className="flex items-center justify-between">
                 <span className="text-lg font-medium text-black">
-                    What’s your typical project timeline?
+                    {question}
                 </span>
 
                 <motion.span
@@ -39,11 +44,7 @@ function TabItem() {
                         className="overflow-hidden"
                     >
                         <p className="mt-2 py-2 text-left text-[15px] text-gray-400">
-                            The timeline depends on the project’s scope and
-                            complexity. Branding and UI/UX projects usually take
-                            2–6 weeks, while Framer website development can
-                            range from 1–4 weeks. I’ll provide a detailed
-                            timeline after the project brief.
+                            {answer}
                         </p>
                     </motion.div>
                 )}

@@ -32,11 +32,11 @@ function Banner() {
             }}
         >
             <Image
-                src={images.model}
+                src={images.smallAvatar}
                 alt="Le Thanh Dat"
                 fill
                 priority
-                className="object-cover object-top"
+                className="object-cover object-center"
             />
             {/* Fade blur effect ở dưới */}
             <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-white via-white/70 to-transparent" />

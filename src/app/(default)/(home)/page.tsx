@@ -10,7 +10,7 @@ function HomePage() {
         <div>
             <Hero />
             <Feature />
-            <Award />
+            {/* <Award /> */}
             <Service />
             <HowItWork />
             <FAQs />

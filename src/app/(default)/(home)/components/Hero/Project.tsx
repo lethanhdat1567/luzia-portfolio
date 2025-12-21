@@ -15,11 +15,10 @@ function Project() {
                     {/* Dot chính */}
                     <span className="relative h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
-                2 projects left in April
+                Chuyên khu vực: Quận 6 (TP.HCM)
             </div>
             <h1 className="mt-4 max-w-xl text-4xl font-medium">
-                Carter is solving problems through strategic design and
-                compelling visuals
+                Tuấn Phát – Đồng hành cùng bạn trong đầu tư và an cư bền vững
             </h1>
 
             <style jsx>{`

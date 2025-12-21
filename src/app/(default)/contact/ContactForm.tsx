@@ -27,14 +27,14 @@ function ContactForm() {
                 {/* Name Field */}
                 <div className="mb-5">
                     <label className="mb-2 block text-xs font-light tracking-wide text-white/60 uppercase">
-                        Name
+                        Họ và tên
                     </label>
                     <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Jane Smith"
+                        placeholder="Nguyễn Văn A"
                         className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all placeholder:text-white/30 focus:bg-white/10 focus:ring-1 focus:ring-white/20 focus:outline-none"
                     />
                 </div>
@@ -49,7 +49,7 @@ function ContactForm() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="yourname@gmail.com"
+                        placeholder="tenban@gmail.com"
                         className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all placeholder:text-white/30 focus:bg-white/10 focus:ring-1 focus:ring-white/20 focus:outline-none"
                     />
                 </div>
@@ -57,13 +57,13 @@ function ContactForm() {
                 {/* Message Field */}
                 <div className="mb-6">
                     <label className="mb-2 block text-xs font-light tracking-wide text-white/60 uppercase">
-                        Your Message
+                        Tin nhắn của bạn
                     </label>
                     <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Enter your message"
+                        placeholder="Nhập tin nhắn của bạn"
                         rows={8}
                         className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all placeholder:text-white/30 focus:bg-white/10 focus:ring-1 focus:ring-white/20 focus:outline-none"
                     />
@@ -74,7 +74,7 @@ function ContactForm() {
                     onClick={handleSubmit}
                     className="group relative w-full overflow-hidden rounded-xl bg-white py-3.5 text-sm font-medium text-black transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
                 >
-                    <span className="relative z-10">Submit</span>
+                    <span className="relative z-10">Gửi</span>
                     <div className="absolute inset-0 bg-linear-to-r from-neutral-100 to-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </button>
             </div>

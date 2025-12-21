@@ -1,13 +1,16 @@
 function End() {
     return (
         <div className="flex flex-col items-center justify-between gap-4 border-t border-neutral-600 pt-4 text-sm text-gray-500 lg:flex-row">
-            <p>© 2025 All right reserved</p>
+            <p>© 2025 Tuấn Phát. All rights reserved.</p>
+
             <div className="flex items-center gap-8">
                 <p>
-                    Made in <span className="text-white">Framer</span>
+                    Bất động sản{" "}
+                    <span className="text-white">minh bạch & bền vững</span>
                 </p>
                 <p>
-                    Created by <span className="text-white">Rosyid Odim</span>
+                    Đồng hành cùng{" "}
+                    <span className="text-white">khách hàng</span>
                 </p>
             </div>
         </div>

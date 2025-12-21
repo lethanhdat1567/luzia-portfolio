@@ -1,4 +1,4 @@
-import smallAvatar from "./uploads/ChatGPT Image Sep 7, 2025, 11_05_23 PM (1).png";
+import smallAvatar from "./uploads/upscale.png";
 import largeAvatar from "./uploads/ChatGPT Image Sep 7, 2025, 11_05_23 PM.png";
 import model from "./uploads/model.avif";
 import feature from "./uploads/feature.webp";
