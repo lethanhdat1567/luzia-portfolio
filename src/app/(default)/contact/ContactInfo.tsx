@@ -28,10 +28,11 @@ function ContactInfo() {
                 {/* Mạng xã hội */}
                 <SocialIcons />
 
-                {/* Nút liên hệ */}
-                <Button className="mt-auto w-full" size={"xl"}>
-                    Gọi điện thoạ<i></i> <Phone />
-                </Button>
+                <a href="tel:+0909364029" className="w-full">
+                    <Button className="mt-auto w-full" size="xl">
+                        Gọi ngay <Phone />
+                    </Button>
+                </a>
             </div>
         </div>
     );

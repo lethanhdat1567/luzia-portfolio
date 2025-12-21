@@ -1,46 +1,47 @@
+"use client";
+
 function Navlist() {
+    const menus = [
+        { title: "Trang chủ", href: "#" },
+        { title: "Dự án", href: "#" },
+        { title: "Dịch vụ", href: "#" },
+        { title: "Liên hệ", href: "#" },
+    ];
+
+    const contacts = [
+        { title: "Zalo", href: "#" },
+        { title: "Facebook", href: "#" },
+        { title: "Hotline", href: "#" },
+        { title: "Email", href: "#" },
+    ];
+
+    const policies = [
+        { title: "Chính sách bảo mật", href: "#" },
+        { title: "Điều khoản sử dụng", href: "#" },
+    ];
+
+    const renderLinks = (items: { title: string; href: string }[]) =>
+        items.map((item) => (
+            <a
+                key={item.title}
+                href={item.href}
+                className="transition-colors hover:text-gray-400"
+            >
+                {item.title}
+            </a>
+        ));
+
     return (
-        <div className="flex gap-16 lg:gap-24">
-            {/* MENU */}
-            <div className="flex flex-col gap-4">
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Trang chủ
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Dự án
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Dịch vụ
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Liên hệ
-                </a>
-            </div>
+        <div className="grid grid-cols-1 gap-8 font-medium sm:grid-cols-2 lg:grid-cols-3">
+            {/* Menus */}
+            <div className="flex flex-col gap-4">{renderLinks(menus)}</div>
 
-            {/* KÊNH LIÊN HỆ */}
-            <div className="flex flex-col gap-4">
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Zalo
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Facebook
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Hotline
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Email
-                </a>
-            </div>
+            {/* Contacts */}
+            <div className="flex flex-col gap-4">{renderLinks(contacts)}</div>
 
-            {/* PHÁP LÝ / THÔNG TIN */}
-            <div className="flex flex-col gap-4">
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Chính sách bảo mật
-                </a>
-                <a href="#" className="transition-colors hover:text-gray-400">
-                    Điều khoản sử dụng
-                </a>
+            {/* Policies */}
+            <div className="col-span-2 flex flex-col gap-4 lg:col-span-1">
+                {renderLinks(policies)}
             </div>
         </div>
     );

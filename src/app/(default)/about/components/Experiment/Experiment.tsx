@@ -3,7 +3,7 @@ import ExItem from "@/app/(default)/about/components/Experiment/ExItem";
 
 function Experiment() {
     return (
-        <div className="py-10">
+        <div className="py-20">
             <div className="app-container">
                 <h2 className="mb-10 text-4xl font-medium">
                     Kinh nghiệm làm việc

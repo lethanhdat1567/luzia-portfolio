@@ -16,6 +16,7 @@ type Theme = {
 
 type ServiceItemProps = {
     title: string;
+    subTitle: string;
     description: string;
     tags: string[];
     icon: LucideIcon;
@@ -28,12 +29,13 @@ function ServiceItem({
     tags,
     icon,
     theme,
+    subTitle,
 }: ServiceItemProps) {
     return (
         <div
             className={`group w-full cursor-pointer rounded-3xl p-2 ${theme.wrapperBg}`}
         >
-            <div className="space-y-2">
+            <div className="flex h-full flex-col gap-2">
                 {/* HEADER STACK */}
                 <div
                     className={`relative h-14 overflow-hidden rounded-3xl ${theme.cardBg}`}
@@ -50,7 +52,7 @@ function ServiceItem({
 
                     <div className="absolute inset-0 flex translate-y-full items-center justify-between px-4 transition-transform duration-500 group-hover:translate-y-0">
                         <ServiceItemHead
-                            title={title}
+                            title={subTitle}
                             icon={icon}
                             titleColor={theme.titleColor}
                             iconBg={theme.iconBg}
@@ -61,26 +63,28 @@ function ServiceItem({
 
                 {/* CONTENT */}
                 <div
-                    className={`rounded-3xl p-4 transition-opacity duration-500 group-hover:opacity-50 ${theme.cardBg}`}
+                    className={`flex flex-1 flex-col justify-between rounded-3xl p-4 ${theme.cardBg}`}
                 >
-                    <p className={`mb-4 text-[15px] ${theme.descColor}`}>
-                        {description}
-                    </p>
+                    <div>
+                        <p className={`mb-4 text-[15px] ${theme.descColor}`}>
+                            {description}
+                        </p>
 
-                    {/* IMAGES placeholder */}
-                    <div className="mb-4 grid grid-cols-3 gap-2">
-                        {[1, 2, 3].map((i) => (
-                            <Image
-                                key={i}
-                                src={images.feature}
-                                alt="feature"
-                                className="h-25 w-full rounded-xl"
-                            />
-                        ))}
+                        {/* IMAGES placeholder */}
+                        <div className="grid grid-cols-3 gap-2">
+                            {[1, 2, 3].map((i) => (
+                                <Image
+                                    key={i}
+                                    src={images.feature}
+                                    alt="feature"
+                                    className="h-25 w-full rounded-xl"
+                                />
+                            ))}
+                        </div>
                     </div>
 
                     {/* TAGS */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap gap-2">
                         {tags.map((tag, i) => (
                             <span
                                 key={i}

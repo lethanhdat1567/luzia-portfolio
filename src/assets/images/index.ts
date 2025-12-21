@@ -6,6 +6,7 @@ import blog from "./uploads/blog.webp";
 import hiwBg from "./uploads/how-it-work.webp";
 import withBg from "./uploads/withBG.png";
 import banner from "./uploads/banne.jpg";
+import info from "./uploads/info.jpg";
 
 export const images = {
     smallAvatar,
@@ -16,4 +17,5 @@ export const images = {
     hiwBg,
     withBg,
     banner,
+    info,
 };

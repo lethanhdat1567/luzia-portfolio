@@ -8,9 +8,9 @@ type StepItemProps = {
 function StepItem({ index, title, description, isMove }: StepItemProps) {
     return (
         <div
-            className={`max-w-md rounded-4xl border border-neutral-800 bg-[#111] p-6 ${
-                isMove ? "translate-x-1/2" : ""
-            }`}
+            className={`w-full rounded-4xl border border-neutral-800 bg-[#111] p-6 lg:max-w-md ${
+                isMove ? "lg:translate-x-1/2" : ""
+            }`} // ✅ chỉ translate trên xl trở lên
         >
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-b from-[#1f1f1f] to-[#111] font-[Instrument_Sans] text-2xl font-medium text-neutral-500">
                 {index}

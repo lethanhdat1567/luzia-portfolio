@@ -9,13 +9,13 @@ function Navbar() {
     const pathname = usePathname();
 
     const navItems = [
-        { name: "Work", href: "/work" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
+        { name: "Trang chủ", href: "/" },
+        { name: "Giới thiệu", href: "/about" },
+        { name: "Liên hệ", href: "/contact" },
     ];
 
     return (
-        <ul className="flex items-center gap-1">
+        <ul className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
                 const isActive = pathname === item.href;
 
@@ -23,7 +23,7 @@ function Navbar() {
                     <li key={item.name} className="relative">
                         <Link
                             href={item.href}
-                            className={`relative block px-4 py-2 font-[Instrument_Sans] text-[15px] font-medium transition-all duration-300 ${
+                            className={`relative block px-4 py-2 text-[15px] font-medium transition-all duration-300 ${
                                 hovered && hovered !== item.name
                                     ? "opacity-40"
                                     : "opacity-100"

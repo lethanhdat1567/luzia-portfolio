@@ -1,31 +1,31 @@
+"use client";
+
 import Background from "@/app/(default)/(home)/components/HowItWork/Background";
 import { steps } from "@/app/(default)/(home)/components/HowItWork/data";
 import StepItem from "@/app/(default)/(home)/components/HowItWork/StepItem";
-import { images } from "@/assets/images";
-import Image from "next/image";
 
 function HowItWork() {
     return (
-        <div className="relative py-20">
+        <div className="relative bg-black">
             <Background />
-            <div className="app-container relative z-10">
-                <div className="grid grid-cols-12">
-                    <div className="col-span-5">
-                        <h2 className="text-xl font-medium text-neutral-500">
+            <div className="app-container relative z-10 py-16 sm:py-20 lg:py-24">
+                <div className="grid grid-cols-1 gap-y-8 sm:px-6 lg:gap-x-8 xl:grid-cols-12">
+                    {/* Title */}
+                    <div className="xl:col-span-5">
+                        <h2 className="text-2xl font-medium text-white sm:text-3xl">
                             Quy trình làm việc
                         </h2>
                     </div>
-                    <div className="col-span-7">
-                        <p className="text-3xl font-medium text-neutral-600">
-                            <strong className="text-white">
-                                Quy trình rõ ràng, minh bạch và hiệu quả
-                            </strong>{" "}
-                            giúp khách hàng dễ dàng theo dõi từng bước, từ việc
-                            xác định nhu cầu đến khi hoàn tất giao dịch và nhận
-                            bàn giao.
+
+                    {/* Description + Steps */}
+                    <div className="xl:col-span-7">
+                        <p className="text-xl font-medium text-white sm:text-2xl lg:text-3xl">
+                            Tôi đảm bảo quy trình rõ ràng và minh bạch, giúp
+                            khách hàng nắm từng bước từ tìm nhà đến hoàn tất
+                            giao dịch.
                         </p>
 
-                        <div className="my-10 space-y-10">
+                        <div className="mt-8 flex flex-col items-center space-y-6 sm:mt-10 sm:space-y-8 lg:space-y-10 xl:block">
                             {steps.map((step, index) => (
                                 <StepItem
                                     key={step.id}

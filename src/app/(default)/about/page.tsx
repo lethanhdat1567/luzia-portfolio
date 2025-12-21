@@ -1,6 +1,6 @@
 import FAQs from "@/app/(default)/(home)/components/FAQs/FAQs";
 import Experiment from "@/app/(default)/about/components/Experiment/Experiment";
-import Gallery from "@/app/(default)/about/components/Gallery/Gallery";
+import { meData } from "@/app/(default)/about/components/Me/data";
 import Me from "@/app/(default)/about/components/Me/Me";
 
 function About() {
@@ -16,9 +16,15 @@ function About() {
                     với tiêu chí minh bạch, an toàn và giá trị lâu dài.
                 </p>
             </div>
-
-            <Me />
-            <Gallery />
+            {meData.map((item) => (
+                <Me
+                    key={item.id}
+                    direction={item.direction}
+                    title={item.title}
+                    description={item.description}
+                    image={item.image}
+                />
+            ))}
             <Experiment />
             <FAQs />
         </div>

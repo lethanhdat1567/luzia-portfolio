@@ -1,12 +1,12 @@
+"use client";
+
 import IntroContent from "@/app/(default)/(home)/components/FAQs/components/IntroContent/IntroContent";
 import TabList from "@/app/(default)/(home)/components/FAQs/components/TabList/Tablist";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 
 function FAQs() {
     return (
-        <div className="bg-white py-20">
-            <div className="app-container grid grid-cols-2 gap-20">
+        <div className="bg-white py-16 sm:py-20 lg:py-24">
+            <div className="app-container grid grid-cols-1 gap-y-12 sm:grid-cols-1 lg:grid-cols-2 lg:gap-x-20">
                 <IntroContent />
                 <TabList />
             </div>

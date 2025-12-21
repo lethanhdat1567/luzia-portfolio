@@ -1,44 +1,90 @@
-import { images } from "@/assets/images";
-import Image from "next/image";
+"use client";
 
-function Me() {
+import Image, { StaticImageData } from "next/image";
+import { useRef, useState } from "react";
+
+type MeProps = {
+    direction?: "left" | "right" | string;
+    title: string;
+    description: string[];
+    image: string | StaticImageData;
+};
+
+function Me({ direction = "left", title, description, image }: MeProps) {
+    const isLeft = direction === "left";
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [rotateX, setRotateX] = useState(0);
+    const [rotateY, setRotateY] = useState(0);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current) return;
+
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+
+        setRotateX(rotateX);
+        setRotateY(rotateY);
+    };
+
+    const handleMouseLeave = () => {
+        setRotateX(0);
+        setRotateY(0);
+    };
+
     return (
-        <div className="app-container mt-20 grid grid-cols-12 gap-10">
-            <div className="col-span-5">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+        <div className="app-container mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12">
+            {/* Image */}
+            <div
+                className={`col-span-1 lg:col-span-6 ${
+                    isLeft ? "lg:order-1" : "lg:order-2"
+                }`}
+            >
+                <div
+                    ref={cardRef}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    className="group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:ring-amber-500/20"
+                    style={{
+                        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
+                        transition: "transform 0.1s ease-out",
+                    }}
+                >
                     <Image
-                        src={images.withBg}
-                        alt="Tuấn Phát"
+                        src={image}
+                        alt={title}
                         fill
                         priority
-                        className="object-cover object-center"
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-linear-to-t from-amber-900/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
             </div>
 
-            <div className="col-span-7">
-                <h1 className="mb-4 font-[Instrument_Sans] text-4xl font-medium tracking-tighter text-black">
-                    Tôi đồng hành cùng khách hàng trong việc lựa chọn và giao
-                    dịch bất động sản một cách an toàn và minh bạch
+            {/* Text */}
+            <div
+                className={`col-span-1 lg:col-span-6 ${
+                    isLeft ? "lg:order-2" : "lg:order-1"
+                } flex flex-col justify-center`}
+            >
+                <h1 className="mb-4 text-center text-3xl font-medium tracking-tighter text-black sm:text-4xl lg:text-left">
+                    {title}
                 </h1>
 
-                <p className="my-4 text-lg text-neutral-700">
-                    Với sự am hiểu về thị trường, pháp lý và nhu cầu thực tế của
-                    khách hàng, tôi tập trung vào việc tư vấn các dự án, nhà phố
-                    và đất nền có tính thanh khoản tốt, pháp lý rõ ràng và giá
-                    trị khai thác lâu dài. Mỗi sản phẩm được giới thiệu đều trải
-                    qua quá trình sàng lọc và đánh giá kỹ lưỡng trước khi đến
-                    tay người mua.
-                </p>
-
-                <p className="my-4 text-lg text-neutral-700">
-                    Trong suốt quá trình làm việc, tôi luôn đặt sự minh bạch, an
-                    toàn và lợi ích lâu dài của khách hàng lên hàng đầu. Từ giai
-                    đoạn tìm hiểu, lựa chọn sản phẩm cho đến khi hoàn tất giao
-                    dịch, tôi cam kết đồng hành và hỗ trợ đầy đủ để khách hàng
-                    có thể đưa ra quyết định đúng đắn và phù hợp với mục tiêu
-                    của mình.
-                </p>
+                {description.map((desc, i) => (
+                    <p
+                        key={i}
+                        className="my-2 text-center text-base text-neutral-700 sm:my-4 sm:text-lg lg:text-left"
+                    >
+                        {desc}
+                    </p>
+                ))}
             </div>
         </div>
     );

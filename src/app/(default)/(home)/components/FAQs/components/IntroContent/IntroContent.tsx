@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ArrowRight } from "lucide-react";
 
 function IntroContent() {
     return (
@@ -8,7 +9,7 @@ function IntroContent() {
                 <h2 className="shrink-0 text-xl font-medium text-gray-600">
                     Cam kết
                 </h2>
-                <Separator className="w-[90%]!" />
+                <span className="h-0.5 w-full bg-neutral-200"></span>
             </div>
             <p className="mt-4 mb-10 text-3xl font-medium text-gray-500">
                 Tôi đồng hành cùng bạn trong việc{" "}
@@ -18,8 +19,9 @@ function IntroContent() {
                 với tiêu chí rõ ràng về pháp lý, tiềm năng và giá trị lâu dài.
             </p>
 
-            <Button size={"xl"} className="shadow-xl">
-                Liên hệ tôi
+            <Button size={"xl"} className="group shadow-xl">
+                Liên hệ tư vấn{" "}
+                <ArrowRight className="transition group-hover:translate-x-1" />
             </Button>
         </div>
     );

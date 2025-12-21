@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 type TabItemProps = {
     question: string;
     answer: string;
+    index: number;
 };
 
-function TabItem({ question, answer }: TabItemProps) {
-    const [open, setOpen] = useState(false);
+function TabItem({ question, answer, index }: TabItemProps) {
+    const [open, setOpen] = useState(() => (index === 0 ? true : false));
 
     return (
         <div
@@ -43,7 +44,7 @@ function TabItem({ question, answer }: TabItemProps) {
                         transition={{ duration: 0.35, ease: "easeOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="mt-2 py-2 text-left text-[15px] text-gray-400">
+                        <p className="mt-2 py-2 text-left text-[15px] text-gray-600">
                             {answer}
                         </p>
                     </motion.div>

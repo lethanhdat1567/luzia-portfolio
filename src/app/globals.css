@@ -128,7 +128,24 @@ body {
         @apply bg-background text-foreground;
     }
 }
-
 .app-container {
-    @apply mx-auto w-full max-w-full px-4 sm:max-w-xl sm:px-6 md:max-w-3xl lg:max-w-6xl lg:px-3;
+    @apply mx-auto w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-0;
+
+    /* Max width theo breakpoint */
+    @apply max-w-full sm:max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-6xl;
+}
+
+.bg-gold {
+    background: linear-gradient(to right, #f59e0b, #eab308, #f59e0b);
+}
+
+.text-gold {
+    background: linear-gradient(to right, #d97706, #eab308, #d97706);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shadow-gold {
+    box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.5);
 }
