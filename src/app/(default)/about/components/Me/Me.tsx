@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 import Image, { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 
@@ -8,7 +9,7 @@ type MeProps = {
     direction?: "left" | "right" | string;
     title: string;
     description: string[];
-    image: string | StaticImageData;
+    image: string;
     index: number;
 };
 
@@ -60,7 +61,7 @@ function Me({ direction = "left", title, description, image, index }: MeProps) {
                         }}
                     >
                         <Image
-                            src={image}
+                            src={convertDriveLinkToDirect(image) || ""}
                             alt={title}
                             fill
                             priority

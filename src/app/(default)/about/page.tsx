@@ -23,7 +23,7 @@ async function About() {
             <AboutComment />
             <Info />
             <Experiment />
-            {/* {companyList.map((item: any, index: number) => (
+            {companyList.map((item: any, index: number) => (
                 <Me
                     key={item.id}
                     direction={item.direction}
@@ -32,7 +32,7 @@ async function About() {
                     image={item.image}
                     index={index}
                 />
-            ))} */}
+            ))}
             <FAQs />
         </div>
     );

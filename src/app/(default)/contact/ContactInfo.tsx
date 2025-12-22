@@ -2,6 +2,7 @@ import SocialIcons from "@/app/(default)/contact/ContactIcons";
 import { images } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 import { Phone, GraduationCap, Mail } from "lucide-react";
 import Image from "next/image";
 
@@ -17,7 +18,13 @@ async function ContactInfo() {
                         <div className="relative h-24 w-24 overflow-hidden rounded-2xl bg-black shadow-lg">
                             <Image
                                 alt="Tuấn Phát"
-                                src={images.smallAvatar}
+                                src={
+                                    convertDriveLinkToDirect(
+                                        contact.contact_avatar,
+                                    ) || ""
+                                }
+                                width={100}
+                                height={100}
                                 className="h-full w-full object-cover"
                             />
                         </div>

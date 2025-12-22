@@ -3,19 +3,28 @@
 import { useEffect, useState } from "react";
 import Stack from "@/components/Stack";
 import Image from "next/image";
-import { images } from "@/assets/images";
-
-const imagesData = [images.image1, images.image2, images.image3];
+import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 
 export default function Thumbnail() {
     const [mounted, setMounted] = useState(false);
+    const [imagesData, setImagesData] = useState([]);
 
-    useEffect(() => setMounted(true), []); // Chỉ render trên client
+    useEffect(() => setMounted(true), []);
 
-    if (!mounted) return null; // Tránh SSR mismatch
+    useEffect(() => {
+        const http = async () => {
+            const content = await getSheetContent("Home");
+            setImagesData(JSON.parse(content.about_images));
+        };
+
+        http();
+    }, []);
+
+    if (!mounted) return null;
 
     return (
-        <div className="hidden h-[600px] w-full lg:block">
+        <div className="hidden h-150 w-full lg:block">
             <Stack
                 sensitivity={200}
                 sendToBackOnClick={true}
@@ -23,7 +32,7 @@ export default function Thumbnail() {
                 cards={imagesData.map((src, i) => (
                     <Image
                         key={i}
-                        src={src}
+                        src={convertDriveLinkToDirect(src) || ""}
                         alt={`card-${i + 1}`}
                         draggable={false}
                         width={500}

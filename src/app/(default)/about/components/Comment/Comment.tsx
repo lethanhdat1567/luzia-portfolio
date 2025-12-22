@@ -5,11 +5,13 @@ import { MOCK_COMMENTS } from "@/app/(default)/about/components/Comment/data";
 import { images } from "@/assets/images";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 function AboutComment() {
     const [comments, setComments] = useState([]);
+    const [infoThumbnail, setInfoThumbnail] = useState("");
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -39,7 +41,9 @@ function AboutComment() {
     useEffect(() => {
         const http = async () => {
             const content = await getSheetContent("About");
+
             setComments(JSON.parse(content.comment_list));
+            setInfoThumbnail(content.info_thumbnail);
         };
 
         http();
@@ -51,11 +55,20 @@ function AboutComment() {
                 <div className="grid grid-cols-12 gap-4 overflow-hidden lg:max-h-127.5">
                     {/* Image Section - Lên trước trên mobile */}
                     <div className="order-1 col-span-12 h-96 w-full overflow-hidden rounded-3xl bg-neutral-500 lg:order-2 lg:col-span-7 lg:h-127.5 lg:rounded-[50px]">
-                        <Image
-                            className="h-full w-full object-cover object-top"
-                            src={images.withBg}
-                            alt="Thanh Dat"
-                        />
+                        {infoThumbnail &&
+                            convertDriveLinkToDirect(infoThumbnail) && (
+                                <Image
+                                    className="h-full w-full object-cover object-top"
+                                    src={
+                                        convertDriveLinkToDirect(
+                                            infoThumbnail,
+                                        ) || ""
+                                    }
+                                    alt="Thanh Dat"
+                                    width={500}
+                                    height={700}
+                                />
+                            )}
                     </div>
 
                     {/* Comment Section - Xuống sau trên mobile */}
