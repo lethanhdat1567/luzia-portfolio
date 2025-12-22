@@ -18,8 +18,8 @@ function TabItem({ question, answer, index }: TabItemProps) {
             className="cursor-pointer rounded-2xl bg-white p-4"
             onClick={() => setOpen(!open)}
         >
-            <div className="flex items-center justify-between">
-                <span className="text-lg font-medium text-black">
+            <div className="flex items-center justify-between gap-4">
+                <span className="text-md text-left font-medium text-black sm:text-lg">
                     {question}
                 </span>
 

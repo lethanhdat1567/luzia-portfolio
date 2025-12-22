@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import Image, { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 
@@ -39,54 +40,56 @@ function Me({ direction = "left", title, description, image }: MeProps) {
     };
 
     return (
-        <div className="app-container mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12">
-            {/* Image */}
-            <div
-                className={`col-span-1 lg:col-span-6 ${
-                    isLeft ? "lg:order-1" : "lg:order-2"
-                }`}
-            >
+        <ScrollAnimate direction="up">
+            <div className="app-container mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12">
+                {/* Image */}
                 <div
-                    ref={cardRef}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    className="group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:ring-amber-500/20"
-                    style={{
-                        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
-                        transition: "transform 0.1s ease-out",
-                    }}
+                    className={`col-span-1 lg:col-span-6 ${
+                        isLeft ? "lg:order-1" : "lg:order-2"
+                    }`}
                 >
-                    <Image
-                        src={image}
-                        alt={title}
-                        fill
-                        priority
-                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-amber-900/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div
+                        ref={cardRef}
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={handleMouseLeave}
+                        className="group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:ring-amber-500/20"
+                        style={{
+                            transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
+                            transition: "transform 0.1s ease-out",
+                        }}
+                    >
+                        <Image
+                            src={image}
+                            alt={title}
+                            fill
+                            priority
+                            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-amber-900/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    </div>
+                </div>
+
+                {/* Text */}
+                <div
+                    className={`col-span-1 lg:col-span-6 ${
+                        isLeft ? "lg:order-2" : "lg:order-1"
+                    } flex flex-col justify-center`}
+                >
+                    <h1 className="mb-4 text-center text-xl font-medium tracking-tighter text-black sm:text-2xl lg:text-left lg:text-4xl">
+                        {title}
+                    </h1>
+
+                    {description.map((desc, i) => (
+                        <p
+                            key={i}
+                            className="my-2 text-center text-base text-neutral-700 sm:my-4 sm:text-lg lg:text-left"
+                        >
+                            {desc}
+                        </p>
+                    ))}
                 </div>
             </div>
-
-            {/* Text */}
-            <div
-                className={`col-span-1 lg:col-span-6 ${
-                    isLeft ? "lg:order-2" : "lg:order-1"
-                } flex flex-col justify-center`}
-            >
-                <h1 className="mb-4 text-center text-3xl font-medium tracking-tighter text-black sm:text-4xl lg:text-left">
-                    {title}
-                </h1>
-
-                {description.map((desc, i) => (
-                    <p
-                        key={i}
-                        className="my-2 text-center text-base text-neutral-700 sm:my-4 sm:text-lg lg:text-left"
-                    >
-                        {desc}
-                    </p>
-                ))}
-            </div>
-        </div>
+        </ScrollAnimate>
     );
 }
 

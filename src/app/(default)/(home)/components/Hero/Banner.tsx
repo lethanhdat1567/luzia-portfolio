@@ -6,8 +6,12 @@ import { useEffect, useState } from "react";
 
 function Banner() {
     const [scrollY, setScrollY] = useState(0);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
+        // Trigger animation khi component mount
+        setIsLoaded(true);
+
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
@@ -26,10 +30,12 @@ function Banner() {
             <div
                 className="relative h-full w-full"
                 style={{
-                    transform: `translateY(${translateY}px) scale(${scale})`,
+                    transform: `translateY(${translateY}px) scale(${scale * (isLoaded ? 1 : 0.8)})`,
                     transformOrigin: "center bottom",
-                    opacity: Math.max(opacity, 0),
-                    transition: "transform 0.1s ease-out",
+                    opacity: isLoaded ? Math.max(opacity, 0) : 0,
+                    transition: isLoaded
+                        ? "transform 1s ease-out"
+                        : "transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease-out",
                 }}
             >
                 <div className="absolute bottom-0 h-full w-full">
@@ -41,12 +47,20 @@ function Banner() {
                         className="object-contain object-top"
                         sizes="(max-width: 768px) 100vw, 672px"
                     />
-                    {/* Gradient mask overlay - MẠNH HƠN */}
+
+                    {/* Natural blur with decreasing intensity */}
                     <div
-                        className="pointer-events-none absolute inset-0 blur-sm filter lg:blur-none"
+                        className="pointer-events-none absolute right-0 bottom-0 left-0"
                         style={{
+                            height: "40%",
                             background:
-                                "linear-gradient(to top, white 0%, white 10%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.4) 35%, transparent 50%)",
+                                "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.85) 75%, rgba(255,255,255,0.95) 85%, #ffffff 100%)",
+                            backdropFilter: "blur(12px)",
+                            WebkitBackdropFilter: "blur(12px)",
+                            maskImage:
+                                "linear-gradient(to top, black 0%, black 40%, transparent 100%)",
+                            WebkitMaskImage:
+                                "linear-gradient(to top, black 0%, black 40%, transparent 100%)",
                         }}
                     />
                 </div>

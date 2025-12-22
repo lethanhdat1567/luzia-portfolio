@@ -1,65 +1,47 @@
-// mock/serviceItems.ts
-import { Building2, Handshake, FileCheck } from "lucide-react";
+import {
+    ClipboardCheck,
+    Home,
+    Search,
+    ShieldCheck,
+    TrendingUp,
+    Users,
+} from "lucide-react";
 
-export const serviceItems = [
+export const servicesData = [
     {
         id: 1,
-        title: "Khai thác nguồn nhà",
-        subtitle: "Hỗ trợ tìm kiếm và sàng lọc nhà, dự án",
-        description:
-            "Tôi hỗ trợ thu thập và sàng lọc thông tin về các căn nhà, dự án phù hợp với nhu cầu khách hàng, đảm bảo dữ liệu chính xác và đáng tin cậy.",
-
-        tags: ["Nhà phố", "Đất nền", "Dự án tiềm năng"],
-        icon: Building2,
-        theme: {
-            wrapperBg: "bg-neutral-50",
-            cardBg: "bg-white",
-            titleColor: "text-neutral-900",
-            descColor: "text-neutral-500",
-            iconBg: "bg-emerald-50",
-            iconColor: "text-emerald-600",
-            tagBg: "bg-neutral-100",
-            tagColor: "text-neutral-500",
-        },
+        title: "Khai thác Nguồn nhà",
+        desc: "Cung cấp danh mục bất động sản đa dạng, vị trí đắc địa tại khu vực Quận 6 và các vùng lân cận TP.HCM.",
+        icon: Home,
     },
     {
         id: 2,
-        title: "Kết nối & tư vấn khách hàng",
-        subtitle: "Hỗ trợ liên hệ và chăm sóc khách hàng",
-        description:
-            "Tôi liên hệ, tư vấn và đồng hành cùng khách hàng trong việc lựa chọn bất động sản phù hợp với nhu cầu và ngân sách, đảm bảo trải nghiệm chuyên nghiệp.",
-
-        tags: ["Liên hệ khách hàng", "Tư vấn", "Hỗ trợ chọn lựa"],
-        icon: Handshake,
-        theme: {
-            wrapperBg: "bg-black",
-            cardBg: "bg-purple-800",
-            titleColor: "text-white",
-            descColor: "text-white",
-            iconBg: "bg-white/15",
-            iconColor: "text-white",
-            tagBg: "border border-white/40",
-            tagColor: "text-white",
-        },
+        title: "Tư vấn Đầu tư",
+        desc: "Phân tích thị trường và tư vấn các phương án đầu tư an toàn, mang lại lợi nhuận bền vững cho khách hàng.",
+        icon: TrendingUp,
     },
     {
         id: 3,
-        title: "Hỗ trợ thủ tục pháp lý",
-        subtitle: "Đồng hành trong hồ sơ & hợp đồng",
-        description:
-            "Tôi hỗ trợ chuẩn bị hồ sơ, theo sát các thủ tục pháp lý và hợp đồng, đảm bảo các giao dịch bất động sản diễn ra minh bạch, rõ ràng và an toàn.",
-
-        tags: ["Pháp lý", "Hợp đồng", "Sang tên"],
-        icon: FileCheck,
-        theme: {
-            wrapperBg: "bg-neutral-50",
-            cardBg: "bg-white",
-            titleColor: "text-neutral-900",
-            descColor: "text-neutral-500",
-            iconBg: "bg-blue-50",
-            iconColor: "text-blue-600",
-            tagBg: "bg-neutral-100",
-            tagColor: "text-neutral-500",
-        },
+        title: "Chăm sóc & Kết nối",
+        desc: "Cầu nối uy tín giữa người mua và người bán, đảm bảo giao dịch diễn ra nhanh chóng và thuận lợi.",
+        icon: Users,
+    },
+    {
+        id: 4,
+        title: "Hỗ trợ Pháp lý",
+        desc: "Tư vấn và hỗ trợ thực hiện các thủ tục giấy tờ, chuyển nhượng quyền sử dụng đất đúng quy định pháp luật.",
+        icon: ShieldCheck,
+    },
+    {
+        id: 5,
+        title: "Thẩm định Giá",
+        desc: "Hỗ trợ khách hàng đánh giá giá trị thực tế của bất động sản để có quyết định mua bán chính xác nhất.",
+        icon: Search,
+    },
+    {
+        id: 6,
+        title: "Ký gửi Bất động sản",
+        desc: "Nhận ký gửi nhà đất với quy trình chuyên nghiệp, giúp tài sản của bạn tiếp cận đúng khách hàng tiềm năng.",
+        icon: ClipboardCheck,
     },
 ];

@@ -3,14 +3,15 @@
 function Navlist() {
     const menus = [
         { title: "Trang chủ", href: "#" },
-        { title: "Dự án", href: "#" },
-        { title: "Dịch vụ", href: "#" },
+        { title: "Giới thiệu", href: "#" },
         { title: "Liên hệ", href: "#" },
     ];
 
     const contacts = [
+        { title: "Tiktok", href: "#" },
         { title: "Zalo", href: "#" },
         { title: "Facebook", href: "#" },
+        { title: "Instagram", href: "#" },
         { title: "Hotline", href: "#" },
         { title: "Email", href: "#" },
     ];

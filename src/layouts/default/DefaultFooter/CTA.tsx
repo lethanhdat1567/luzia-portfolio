@@ -5,7 +5,7 @@ import Link from "next/link";
 function CTA() {
     return (
         <div className="flex-1">
-            <h2 className="max-w-sm text-3xl font-medium text-gray-400">
+            <h2 className="max-w-sm text-2xl font-medium text-gray-400 md:text-3xl">
                 Chia sẻ nhu cầu của bạn,{" "}
                 <strong className="font-medium text-white">
                     tôi sẽ đồng hành và hỗ trợ tận tình

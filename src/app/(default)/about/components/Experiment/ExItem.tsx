@@ -8,7 +8,7 @@ type ExItemProps = {
 function ExItem({ role, company, time, current }: ExItemProps) {
     return (
         <div
-            className={`grid grid-cols-1 items-center gap-2 rounded-xl p-4 sm:grid-cols-12 ${
+            className={`grid grid-cols-1 items-center gap-2 rounded-xl p-4 lg:grid-cols-12 ${
                 current ? "bg-gold text-white shadow-xl" : "bg-neutral-100"
             }`}
         >

@@ -1,101 +1,19 @@
-import ServiceItemHead from "@/app/(default)/(home)/components/Service/ServiceItemHead";
-import Image from "next/image";
-import { LucideIcon } from "lucide-react";
-import { images } from "@/assets/images";
+import { ArrowUpRight } from "lucide-react";
 
-type Theme = {
-    wrapperBg: string;
-    cardBg: string;
-    titleColor: string;
-    descColor: string;
-    iconBg: string;
-    iconColor: string;
-    tagBg: string;
-    tagColor: string;
-};
-
-type ServiceItemProps = {
+type Props = {
     title: string;
-    subTitle: string;
-    description: string;
-    tags: string[];
-    icon: LucideIcon;
-    theme: Theme;
+    desc: string;
+    Icon: any;
 };
 
-function ServiceItem({
-    title,
-    description,
-    tags,
-    icon,
-    theme,
-    subTitle,
-}: ServiceItemProps) {
+function ServiceItem({ title, desc, Icon }: Props) {
     return (
-        <div
-            className={`group w-full cursor-pointer rounded-3xl p-2 ${theme.wrapperBg}`}
-        >
-            <div className="flex h-full flex-col gap-2">
-                {/* HEADER STACK */}
-                <div
-                    className={`relative h-14 overflow-hidden rounded-3xl ${theme.cardBg}`}
-                >
-                    <div className="absolute inset-0 flex items-center justify-between px-4 transition-transform duration-500 group-hover:-translate-y-full">
-                        <ServiceItemHead
-                            title={title}
-                            icon={icon}
-                            titleColor={theme.titleColor}
-                            iconBg={theme.iconBg}
-                            iconColor={theme.iconColor}
-                        />
-                    </div>
-
-                    <div className="absolute inset-0 flex translate-y-full items-center justify-between px-4 transition-transform duration-500 group-hover:translate-y-0">
-                        <ServiceItemHead
-                            title={subTitle}
-                            icon={icon}
-                            titleColor={theme.titleColor}
-                            iconBg={theme.iconBg}
-                            iconColor={theme.iconColor}
-                        />
-                    </div>
-                </div>
-
-                {/* CONTENT */}
-                <div
-                    className={`flex flex-1 flex-col justify-between rounded-3xl p-4 ${theme.cardBg}`}
-                >
-                    <div>
-                        <p className={`mb-4 text-[15px] ${theme.descColor}`}>
-                            {description}
-                        </p>
-
-                        {/* IMAGES placeholder */}
-                        <div className="grid grid-cols-3 gap-2">
-                            {[1, 2, 3].map((i) => (
-                                <Image
-                                    key={i}
-                                    src={images.feature}
-                                    alt="feature"
-                                    className="h-25 w-full rounded-xl"
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* TAGS */}
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {tags.map((tag, i) => (
-                            <span
-                                key={i}
-                                className={`inline-flex items-center justify-center rounded-md px-2 py-1.5 text-[15px] ${theme.tagBg} ${theme.tagColor}`}
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
+        <div className="w-full rounded-2xl border border-transparent bg-gray-100 p-6 transition-all">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+                <Icon size={24} />
+            </span>
+            <h2 className="my-4 text-xl font-bold text-gray-800">{title}</h2>
+            <p className="leading-relaxed text-gray-600">{desc}</p>
         </div>
     );
 }

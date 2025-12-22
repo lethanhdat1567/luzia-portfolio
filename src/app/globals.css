@@ -128,11 +128,10 @@ body {
         @apply bg-background text-foreground;
     }
 }
-.app-container {
-    @apply mx-auto w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-0;
 
-    /* Max width theo breakpoint */
-    @apply max-w-full sm:max-w-md md:max-w-2xl lg:max-w-5xl xl:max-w-6xl;
+.app-container {
+    @apply mx-auto w-full px-3 sm:px-4;
+    @apply md:max-w-180 lg:max-w-240 xl:max-w-2xl 2xl:max-w-285;
 }
 
 .bg-gold {

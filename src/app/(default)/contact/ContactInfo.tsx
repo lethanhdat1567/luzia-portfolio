@@ -1,36 +1,73 @@
 import SocialIcons from "@/app/(default)/contact/ContactIcons";
 import { images } from "@/assets/images";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, GraduationCap, Mail } from "lucide-react";
 import Image from "next/image";
 
 function ContactInfo() {
     return (
         <div className="col-span-4">
-            <div className="flex h-133 w-full flex-col justify-between rounded-3xl bg-neutral-100 p-8 shadow-lg">
+            <div className="flex h-133 w-full flex-col justify-between rounded-3xl bg-linear-to-br from-neutral-50 to-neutral-100 p-8 shadow-xl">
                 {/* Ảnh đại diện */}
-                <div className="mb-8">
-                    <div className="h-24 w-24 overflow-hidden rounded-3xl bg-black">
-                        <Image
-                            alt="Tuấn Phát"
-                            src={images.smallAvatar}
-                            className="h-full w-full object-cover"
-                        />
+                <div>
+                    <div className="mb-6">
+                        <div className="relative h-24 w-24 overflow-hidden rounded-2xl bg-black shadow-lg">
+                            <Image
+                                alt="Tuấn Phát"
+                                src={images.smallAvatar}
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
                     </div>
+
+                    {/* Thông tin liên hệ - List style */}
+                    <ul className="mb-8 space-y-3.5">
+                        <li className="group flex items-center gap-3.5 border-l-2 border-gray-300 pl-4 transition-all hover:border-gray-900">
+                            <GraduationCap className="h-5 w-5 shrink-0 text-gray-600" />
+                            <span className="text-sm font-medium text-gray-800">
+                                Thực tập sinh đến từ Đại học Kinh tế TP.HCM
+                                (UEH)
+                            </span>
+                        </li>
+
+                        <li className="group flex items-center gap-3.5 border-l-2 border-gray-300 pl-4 transition-all hover:border-gray-900">
+                            <Phone className="h-5 w-5 shrink-0 text-gray-600" />
+                            <a
+                                href="tel:+84911530101"
+                                className="text-sm font-medium text-gray-800 transition-colors hover:text-gray-900"
+                            >
+                                0911 530 101
+                            </a>
+                        </li>
+
+                        <li className="group flex items-center gap-3.5 border-l-2 border-gray-300 pl-4 transition-all hover:border-gray-900">
+                            <Mail className="h-5 w-5 shrink-0 text-gray-600" />
+                            <a
+                                href="mailto:tuanphatskl@gmail.com"
+                                className="text-sm font-medium break-all text-gray-800 transition-colors hover:text-gray-900"
+                            >
+                                tuanphatskl@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                    {/* Giới thiệu ngắn */}
+                    <p className="text-sm leading-relaxed text-gray-700">
+                        Ngoài việc gửi form, bạn có thể liên hệ tôi trực tiếp
+                        qua số điện thoại, email hoặc các mạng xã hội dưới đây
+                    </p>
+
+                    {/* Mạng xã hội */}
+                    <SocialIcons />
                 </div>
 
-                {/* Giới thiệu ngắn */}
-                <p className="text-md text-gray-600">
-                    Ngoài việc gửi form, bạn có thể liên hệ tôi trực tiếp qua số
-                    điện thoại, email hoặc các mạng xã hội dưới đây
-                </p>
-
-                {/* Mạng xã hội */}
-                <SocialIcons />
-
-                <a href="tel:+0909364029" className="w-full">
-                    <Button className="mt-auto w-full" size="xl">
-                        Gọi ngay <Phone />
+                {/* CTA Button */}
+                <a href="tel:+84911530101" className="w-full">
+                    <Button
+                        className="mt-auto w-full transition-all duration-300 hover:shadow-xl"
+                        size="xl"
+                    >
+                        <span className="font-semibold">Gọi ngay</span>
+                        <Phone className="h-5 w-5" />
                     </Button>
                 </a>
             </div>

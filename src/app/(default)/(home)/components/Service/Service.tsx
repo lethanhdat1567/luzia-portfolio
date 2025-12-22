@@ -1,7 +1,8 @@
 "use client";
 
-import { serviceItems } from "@/app/(default)/(home)/components/Service/data";
+import { servicesData } from "@/app/(default)/(home)/components/Service/data";
 import ServiceItem from "@/app/(default)/(home)/components/Service/ServiceItem";
+import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 
 function Service() {
     return (
@@ -9,31 +10,37 @@ function Service() {
             <div className="app-container">
                 {/* Header */}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2 lg:gap-6">
-                    <h3 className="text-lg font-medium text-neutral-600 sm:text-xl">
-                        Hỗ trợ khai thác & chăm sóc khách hàng
-                    </h3>
-                    <p className="text-2xl font-medium text-neutral-500 sm:text-3xl">
-                        Tôi hỗ trợ tìm kiếm và sàng lọc nguồn nhà, kết nối khách
-                        hàng và{" "}
-                        <strong className="text-black">
-                            đảm bảo mọi thủ tục pháp lý diễn ra suôn sẻ
-                        </strong>{" "}
-                        để mang lại trải nghiệm dịch vụ chuyên nghiệp.
-                    </p>
+                    <ScrollAnimate direction="right">
+                        <h3 className="text-lg font-medium text-neutral-600 lg:text-xl">
+                            Đồng hành cùng nhà đầu tư
+                        </h3>
+                    </ScrollAnimate>
+                    <ScrollAnimate direction="left">
+                        <p className="text-2xl font-medium text-neutral-500 lg:text-3xl">
+                            Cung cấp nguồn nhà chất lượng, tư vấn chuẩn xác và{" "}
+                            <strong className="text-black">
+                                bảo chứng tính pháp lý
+                            </strong>{" "}
+                            cho từng bước đi vững chắc của khách hàng.
+                        </p>
+                    </ScrollAnimate>
                 </div>
 
                 {/* Service Items Grid */}
-                <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-                    {serviceItems.map((item) => (
-                        <ServiceItem
-                            key={item.id}
-                            title={item.title}
-                            description={item.description}
-                            tags={item.tags}
-                            icon={item.icon}
-                            theme={item.theme}
-                            subTitle={item.subtitle}
-                        />
+                <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
+                    {servicesData.map((service, index) => (
+                        <ScrollAnimate
+                            duration={0.6}
+                            key={service.id}
+                            direction="up"
+                            delay={index * 0.15}
+                        >
+                            <ServiceItem
+                                title={service.title}
+                                desc={service.desc}
+                                Icon={service.icon}
+                            />
+                        </ScrollAnimate>
                     ))}
                 </div>
             </div>

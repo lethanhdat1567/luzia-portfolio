@@ -1,12 +1,19 @@
 "use client";
 
-import { images } from "@/assets/images";
+import { useEffect, useState } from "react";
 import Stack from "@/components/Stack";
 import Image from "next/image";
+import { images } from "@/assets/images";
 
-const imagesData = [images.banner, images.banner, images.banner, images.banner];
+const imagesData = [images.image1, images.image2, images.image3];
 
-function Thumbnail() {
+export default function Thumbnail() {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => setMounted(true), []); // Chỉ render trên client
+
+    if (!mounted) return null; // Tránh SSR mismatch
+
     return (
         <div className="hidden h-120 w-full lg:block">
             <Stack
@@ -29,5 +36,3 @@ function Thumbnail() {
         </div>
     );
 }
-
-export default Thumbnail;

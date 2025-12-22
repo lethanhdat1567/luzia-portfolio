@@ -16,7 +16,7 @@ function StepItem({ index, title, description, isMove }: StepItemProps) {
                 {index}
             </div>
 
-            <h3 className="mt-6 mb-4 text-2xl font-medium text-white">
+            <h3 className="mt-6 mb-4 text-xl font-medium text-white sm:text-2xl">
                 {title}
             </h3>
 
