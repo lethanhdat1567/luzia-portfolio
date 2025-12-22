@@ -17,7 +17,7 @@ export default function Project() {
         <div className="relative z-10 xl:absolute xl:bottom-20 xl:left-12">
             {/* Badge vùng */}
             <ScrollAnimate direction="down">
-                <div className="md:text-md inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/80 px-4 py-1 text-sm text-amber-700 backdrop-blur-sm">
+                <div className="md:text-md mt-10 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/80 px-4 py-1 text-sm text-amber-700 backdrop-blur-sm lg:mt-30">
                     <span className="relative flex h-2.5 w-2.5">
                         {/* Ping animation */}
                         <span
