@@ -1,10 +1,13 @@
 import SocialIcons from "@/app/(default)/contact/ContactIcons";
 import { images } from "@/assets/images";
 import { Button } from "@/components/ui/button";
+import { getSheetContent } from "@/lib/getSheetContent";
 import { Phone, GraduationCap, Mail } from "lucide-react";
 import Image from "next/image";
 
-function ContactInfo() {
+async function ContactInfo() {
+    const contact = await getSheetContent("Contact");
+
     return (
         <div className="col-span-4">
             <div className="flex h-133 w-full flex-col justify-between rounded-3xl bg-linear-to-br from-neutral-50 to-neutral-100 p-8 shadow-xl">
@@ -25,8 +28,7 @@ function ContactInfo() {
                         <li className="group flex items-center gap-3.5 border-l-2 border-gray-300 pl-4 transition-all hover:border-gray-900">
                             <GraduationCap className="h-5 w-5 shrink-0 text-gray-600" />
                             <span className="text-sm font-medium text-gray-800">
-                                Thực tập sinh đến từ Đại học Kinh tế TP.HCM
-                                (UEH)
+                                {contact.contact_study_at}
                             </span>
                         </li>
 
@@ -36,17 +38,17 @@ function ContactInfo() {
                                 href="tel:+84911530101"
                                 className="text-sm font-medium text-gray-800 transition-colors hover:text-gray-900"
                             >
-                                0911 530 101
+                                {contact.contact_phone_number}
                             </a>
                         </li>
 
                         <li className="group flex items-center gap-3.5 border-l-2 border-gray-300 pl-4 transition-all hover:border-gray-900">
                             <Mail className="h-5 w-5 shrink-0 text-gray-600" />
                             <a
-                                href="mailto:tuanphatskl@gmail.com"
+                                href={`mailto:${contact.contact_email}`}
                                 className="text-sm font-medium break-all text-gray-800 transition-colors hover:text-gray-900"
                             >
-                                tuanphatskl@gmail.com
+                                {contact.contact_email}
                             </a>
                         </li>
                     </ul>

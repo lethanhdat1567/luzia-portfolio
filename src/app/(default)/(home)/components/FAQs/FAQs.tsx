@@ -1,5 +1,3 @@
-"use client";
-
 import IntroContent from "@/app/(default)/(home)/components/FAQs/components/IntroContent/IntroContent";
 import TabList from "@/app/(default)/(home)/components/FAQs/components/TabList/Tablist";
 

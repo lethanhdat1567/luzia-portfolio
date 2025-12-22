@@ -1,9 +1,12 @@
-import { faqs } from "@/app/(default)/(home)/components/FAQs/components/data";
 import TabItem from "@/app/(default)/(home)/components/FAQs/components/TabList/TabItem";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { Button } from "@/components/ui/button";
+import { getSheetContent } from "@/lib/getSheetContent";
 
-function TabList() {
+async function TabList() {
+    const content = await getSheetContent("Home");
+    const faqs = JSON.parse(content.faq_question) || [];
+
     return (
         <ScrollAnimate direction="scale">
             <div className="rounded-4xl bg-neutral-100 px-2 py-8 text-center sm:px-4">
@@ -15,7 +18,7 @@ function TabList() {
                 </Button>
 
                 <div className="space-y-2">
-                    {faqs.map((item, index) => (
+                    {faqs.map((item: any, index: number) => (
                         <TabItem
                             key={item.id}
                             question={item.question}

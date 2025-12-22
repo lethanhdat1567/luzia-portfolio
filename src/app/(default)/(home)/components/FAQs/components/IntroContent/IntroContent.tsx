@@ -1,8 +1,11 @@
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { Button } from "@/components/ui/button";
+import { getSheetContent } from "@/lib/getSheetContent";
 import { ArrowRight } from "lucide-react";
 
-function IntroContent() {
+async function IntroContent() {
+    const content = await getSheetContent("Home");
+
     return (
         <div>
             <ScrollAnimate direction="up">
@@ -15,12 +18,7 @@ function IntroContent() {
             </ScrollAnimate>
             <ScrollAnimate direction="up" delay={0.2}>
                 <p className="mt-4 mb-10 text-2xl font-medium text-gray-500 md:text-3xl">
-                    Tôi đồng hành cùng bạn trong việc{" "}
-                    <strong className="font-medium text-black">
-                        lựa chọn, đánh giá và giao dịch bất động sản
-                    </strong>{" "}
-                    với tiêu chí rõ ràng về pháp lý, tiềm năng và giá trị lâu
-                    dài.
+                    {content.faq_title}
                 </p>
             </ScrollAnimate>
 

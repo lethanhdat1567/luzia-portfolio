@@ -1,10 +1,12 @@
-"use client";
-
 import { servicesData } from "@/app/(default)/(home)/components/Service/data";
 import ServiceItem from "@/app/(default)/(home)/components/Service/ServiceItem";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { getSheetContent } from "@/lib/getSheetContent";
 
-function Service() {
+async function Service() {
+    const content = await getSheetContent("Home");
+    const serviceData = content.service_list || [];
+
     return (
         <div className="bg-neutral-50 py-16 sm:py-20 lg:py-30">
             <div className="app-container">
@@ -12,16 +14,12 @@ function Service() {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2 lg:gap-6">
                     <ScrollAnimate direction="right">
                         <h3 className="text-lg font-medium text-neutral-800 lg:text-xl">
-                            Đồng hành cùng nhà đầu tư
+                            {content.service_title}
                         </h3>
                     </ScrollAnimate>
                     <ScrollAnimate direction="left">
                         <p className="text-2xl font-medium text-neutral-500 lg:text-3xl">
-                            Cung cấp nguồn nhà chất lượng, tư vấn chuẩn xác và{" "}
-                            <strong className="text-black">
-                                bảo chứng tính pháp lý
-                            </strong>{" "}
-                            cho từng bước đi vững chắc của khách hàng.
+                            {content.service_desc}
                         </p>
                     </ScrollAnimate>
                 </div>

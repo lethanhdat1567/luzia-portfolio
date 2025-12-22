@@ -4,7 +4,7 @@ import HowItWork from "@/app/(default)/(home)/components/HowItWork/HowItWork";
 import Info from "@/app/(default)/(home)/components/Info/Info";
 import Service from "@/app/(default)/(home)/components/Service/Service";
 
-function HomePage() {
+async function HomePage() {
     return (
         <div>
             <Hero />

@@ -1,11 +1,12 @@
-"use client";
-
 import Background from "@/app/(default)/(home)/components/HowItWork/Background";
-import { steps } from "@/app/(default)/(home)/components/HowItWork/data";
 import StepItem from "@/app/(default)/(home)/components/HowItWork/StepItem";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { getSheetContent } from "@/lib/getSheetContent";
 
-function HowItWork() {
+async function HowItWork() {
+    const content = await getSheetContent("Home");
+    const steps = JSON.parse(content.progress_list) || [];
+
     return (
         <div className="relative bg-black">
             <Background />
@@ -15,7 +16,7 @@ function HowItWork() {
                     <div className="xl:col-span-5">
                         <ScrollAnimate direction="right">
                             <h2 className="text-2xl font-medium text-white lg:text-3xl">
-                                Quy trình làm việc
+                                {content.progress_title}
                             </h2>
                         </ScrollAnimate>
                     </div>
@@ -24,14 +25,12 @@ function HowItWork() {
                     <div className="xl:col-span-7">
                         <ScrollAnimate direction="left">
                             <p className="text-xl font-medium text-white sm:text-2xl lg:text-3xl">
-                                Tôi đảm bảo quy trình rõ ràng và minh bạch, giúp
-                                khách hàng nắm từng bước từ tìm nhà đến hoàn tất
-                                giao dịch.
+                                {content.progress_desc}
                             </p>
                         </ScrollAnimate>
 
                         <div className="mt-8 flex flex-col items-center space-y-6 sm:mt-10 sm:space-y-8 lg:space-y-10 xl:block">
-                            {steps.map((step, index) => (
+                            {steps.map((step: any, index: number) => (
                                 <ScrollAnimate
                                     key={step.id}
                                     direction={

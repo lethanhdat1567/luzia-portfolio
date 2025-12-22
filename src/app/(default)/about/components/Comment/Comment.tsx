@@ -4,10 +4,12 @@ import CommentItem from "@/app/(default)/about/components/Comment/CommentItem";
 import { MOCK_COMMENTS } from "@/app/(default)/about/components/Comment/data";
 import { images } from "@/assets/images";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { getSheetContent } from "@/lib/getSheetContent";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 function AboutComment() {
+    const [comments, setComments] = useState([]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -34,6 +36,15 @@ function AboutComment() {
         };
     }, [isHovered]);
 
+    useEffect(() => {
+        const http = async () => {
+            const content = await getSheetContent("About");
+            setComments(JSON.parse(content.comment_list));
+        };
+
+        http();
+    }, []);
+
     return (
         <div className="app-container">
             <ScrollAnimate direction="up">
@@ -59,7 +70,7 @@ function AboutComment() {
                         >
                             <div className="space-y-3 sm:space-y-4">
                                 {/* Render lần 1 */}
-                                {MOCK_COMMENTS.map((comment) => (
+                                {comments.map((comment: any) => (
                                     <CommentItem
                                         key={`first-${comment.id}`}
                                         avatar={comment.avatar}
@@ -69,7 +80,7 @@ function AboutComment() {
                                     />
                                 ))}
                                 {/* Render lần 2 để loop */}
-                                {MOCK_COMMENTS.map((comment) => (
+                                {comments.map((comment: any) => (
                                     <CommentItem
                                         key={`second-${comment.id}`}
                                         avatar={comment.avatar}

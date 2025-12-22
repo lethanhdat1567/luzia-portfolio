@@ -2,9 +2,13 @@ import { features } from "@/app/(default)/(home)/components/Info/data";
 import SwiperWrapper from "@/app/(default)/(home)/components/Info/Swiper";
 import Thumbnail from "@/app/(default)/(home)/components/Info/Thumbnail";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { getSheetContent } from "@/lib/getSheetContent";
 import { CheckCircle2 } from "lucide-react";
 
-function Info({ withBg }: { withBg?: boolean }) {
+async function Info({ withBg }: { withBg?: boolean }) {
+    const content = await getSheetContent("Home");
+    const features = JSON.parse(content.about_list_info) || [];
+
     return (
         <div
             className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-20`}
@@ -24,16 +28,16 @@ function Info({ withBg }: { withBg?: boolean }) {
 
                         <ScrollAnimate direction="left">
                             <h2 className="text-3xl leading-tight font-bold text-gray-900 uppercase md:text-4xl lg:text-5xl">
-                                Thực tập sinh
+                                {content.about_title}
                                 <br className="hidden lg:block" />
                                 <span className="ml-2 bg-linear-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
-                                    Bất động sản
+                                    {content.about_hightlight}
                                 </span>
                             </h2>
                         </ScrollAnimate>
 
                         <div className="mt-8 mb-10 space-y-5">
-                            {features.map((feature, index) => (
+                            {features.map((feature: any, index: number) => (
                                 <ScrollAnimate
                                     direction="up"
                                     delay={index * 0.2}

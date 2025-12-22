@@ -1,6 +1,5 @@
 "use client";
 
-import Particles from "@/components/Particles";
 import Silk from "@/components/Silk";
 
 function Background() {
