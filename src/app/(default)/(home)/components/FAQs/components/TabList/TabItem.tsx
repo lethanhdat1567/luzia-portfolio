@@ -44,7 +44,7 @@ function TabItem({ question, answer, index }: TabItemProps) {
                         transition={{ duration: 0.35, ease: "easeOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="mt-2 py-2 text-left text-[15px] text-gray-600">
+                        <p className="mt-2 py-2 text-left text-[15px] text-gray-700">
                             {answer}
                         </p>
                     </motion.div>

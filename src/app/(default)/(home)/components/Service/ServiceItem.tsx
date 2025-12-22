@@ -13,7 +13,7 @@ function ServiceItem({ title, desc, Icon }: Props) {
                 <Icon size={24} />
             </span>
             <h2 className="my-4 text-xl font-bold text-gray-800">{title}</h2>
-            <p className="leading-relaxed text-gray-600">{desc}</p>
+            <p className="leading-relaxed text-gray-800">{desc}</p>
         </div>
     );
 }

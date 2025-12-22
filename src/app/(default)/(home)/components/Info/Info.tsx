@@ -48,7 +48,7 @@ function Info() {
                                         <div className="mt-1 shrink-0">
                                             <CheckCircle2 className="h-6 w-6 text-amber-600 transition-all group-hover:scale-110 group-hover:text-yellow-600" />
                                         </div>
-                                        <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+                                        <p className="text-sm leading-relaxed text-black sm:text-base">
                                             {feature}
                                         </p>
                                     </div>

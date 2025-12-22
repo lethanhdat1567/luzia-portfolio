@@ -11,7 +11,7 @@ function Service() {
                 {/* Header */}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2 lg:gap-6">
                     <ScrollAnimate direction="right">
-                        <h3 className="text-lg font-medium text-neutral-600 lg:text-xl">
+                        <h3 className="text-lg font-medium text-neutral-800 lg:text-xl">
                             Đồng hành cùng nhà đầu tư
                         </h3>
                     </ScrollAnimate>
