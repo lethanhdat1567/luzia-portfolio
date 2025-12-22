@@ -14,7 +14,7 @@ export default function Project() {
     if (!mounted) return null; // Tránh SSR mismatch
 
     return (
-        <div className="relative bottom-20 left-12 z-10 xl:absolute">
+        <div className="xs:bottom-20 relative z-10 xl:absolute xl:left-12">
             {/* Badge vùng */}
             <ScrollAnimate direction="down">
                 <div className="md:text-md inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/80 px-4 py-1 text-sm text-amber-700 backdrop-blur-sm">
