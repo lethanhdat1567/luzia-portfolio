@@ -9,9 +9,10 @@ type MeProps = {
     title: string;
     description: string[];
     image: string | StaticImageData;
+    index: number;
 };
 
-function Me({ direction = "left", title, description, image }: MeProps) {
+function Me({ direction = "left", title, description, image, index }: MeProps) {
     const isLeft = direction === "left";
     const cardRef = useRef<HTMLDivElement>(null);
     const [rotateX, setRotateX] = useState(0);
@@ -40,8 +41,8 @@ function Me({ direction = "left", title, description, image }: MeProps) {
     };
 
     return (
-        <ScrollAnimate direction="up">
-            <div className="app-container mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12">
+        <ScrollAnimate direction={(index + 1) % 2 === 0 ? "left" : "right"}>
+            <div className="app-container mt-16 grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
                 {/* Image */}
                 <div
                     className={`col-span-1 lg:col-span-6 ${
@@ -82,7 +83,7 @@ function Me({ direction = "left", title, description, image }: MeProps) {
                     {description.map((desc, i) => (
                         <p
                             key={i}
-                            className="my-2 text-center text-base text-neutral-700 sm:my-4 sm:text-lg lg:text-left"
+                            className="my-1.5 text-center text-base text-neutral-700 sm:text-lg lg:text-left"
                         >
                             {desc}
                         </p>

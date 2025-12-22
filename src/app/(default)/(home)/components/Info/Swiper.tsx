@@ -3,9 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { images } from "@/assets/images";
-
-const imagesData = [images.banner, images.banner, images.banner, images.banner];
+import { imagesData } from "@/app/(default)/(home)/components/Info/data";
 
 function SwiperWrapper() {
     return (

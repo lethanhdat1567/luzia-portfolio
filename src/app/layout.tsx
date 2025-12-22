@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 // Inter (chính)
 const inter = Inter({
@@ -74,6 +75,7 @@ export default function RootLayout({
                 className={`${inter.className} ${instrument.variable} font-sans antialiased`}
             >
                 {children}
+                <Toaster />
             </body>
         </html>
     );

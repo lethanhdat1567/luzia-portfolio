@@ -1,4 +1,5 @@
 import FAQs from "@/app/(default)/(home)/components/FAQs/FAQs";
+import Info from "@/app/(default)/(home)/components/Info/Info";
 import AboutComment from "@/app/(default)/about/components/Comment/Comment";
 import Experiment from "@/app/(default)/about/components/Experiment/Experiment";
 import { meData } from "@/app/(default)/about/components/Me/data";
@@ -21,16 +22,18 @@ function About() {
                 </ScrollAnimate>
             </div>
             <AboutComment />
-            {meData.map((item) => (
+            <Info />
+            <Experiment />
+            {meData.map((item, index) => (
                 <Me
                     key={item.id}
                     direction={item.direction}
                     title={item.title}
                     description={item.description}
                     image={item.image}
+                    index={index}
                 />
             ))}
-            <Experiment />
             <FAQs />
         </div>
     );

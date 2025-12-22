@@ -57,7 +57,7 @@ function FooterBanner() {
                 {/* Placeholder - thay bằng Image component của bạn */}
                 <div className="flex h-full w-full items-center justify-center text-2xl text-white">
                     <Image
-                        src={images.banner}
+                        src={images.cityBanner}
                         className="h-full w-full object-cover"
                         alt="bds"
                     />

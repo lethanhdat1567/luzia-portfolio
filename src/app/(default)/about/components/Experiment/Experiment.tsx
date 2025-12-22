@@ -4,7 +4,7 @@ import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 
 function Experiment() {
     return (
-        <div className="py-20 pb-0">
+        <div className="py-20 pb-30">
             <div className="app-container">
                 <ScrollAnimate direction="right">
                     <h2 className="mb-6 text-2xl font-medium lg:text-4xl">
@@ -18,6 +18,7 @@ function Experiment() {
                             key={item.id}
                             direction="up"
                             delay={index * 0.2}
+                            threshold={0}
                         >
                             <ExItem
                                 role={item.role}

@@ -1,8 +1,14 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { useState } from "react";
+import { toast } from "sonner";
 
 function ContactForm() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -16,14 +22,79 @@ function ContactForm() {
         });
     };
 
-    const handleSubmit = () => {
-        console.log("Form submitted:", formData);
-        // Handle form submission
+    // ✅ Validate cơ bản
+    const validate = () => {
+        if (!formData.name.trim()) return "Vui lòng nhập họ tên";
+        if (!formData.email.trim()) return "Vui lòng nhập email";
+        if (!formData.message.trim()) return "Vui lòng nhập tin nhắn";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) return "Email không hợp lệ";
+
+        return null;
+    };
+
+    const handleSubmit = async () => {
+        if (loading) return;
+
+        const errorMsg = validate();
+        if (errorMsg) {
+            setError(errorMsg);
+            return;
+        }
+
+        const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+        if (!accessKey) {
+            console.error("Missing NEXT_PUBLIC_WEB3FORMS_KEY");
+            toast.error("Cấu hình hệ thống chưa sẵn sàng");
+            return;
+        }
+
+        setError(null);
+        setLoading(true);
+
+        try {
+            const data = new FormData();
+            data.append("access_key", accessKey);
+            data.append("subject", `📩 ${formData.name} đã liên hệ từ website`);
+            data.append("from_name", "Website Contact");
+            data.append("replyto", formData.email);
+            data.append("name", formData.name);
+            data.append("email", formData.email);
+            data.append(
+                "message",
+                `
+                    👤 Họ tên: ${formData.name}
+                    📧 Email: ${formData.email}
+
+                    💬 Nội dung:
+                    ${formData.message}
+            `.trim(),
+            );
+
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: data,
+            });
+
+            const { success } = await res.json();
+
+            if (!success) throw new Error("Submit failed");
+
+            setFormData({ name: "", email: "", message: "" });
+            toast.success("Đã gửi thông tin thành công 🎉");
+        } catch (error) {
+            console.error(error);
+            setError("Có lỗi xảy ra, vui lòng thử lại");
+            toast.error("Gửi thất bại 😢");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="col-span-8">
-            <div className="w-full rounded-3xl border border-white/5 bg-gradient-to-br from-neutral-900 to-black p-8 shadow-2xl">
+            <div className="w-full rounded-3xl border border-white/5 bg-linear-to-br from-neutral-900 to-black p-8 shadow-2xl">
                 {/* Name Field */}
                 <div className="mb-5">
                     <label className="mb-2 block text-xs font-light tracking-wide text-white/60 uppercase">
@@ -69,14 +140,24 @@ function ContactForm() {
                     />
                 </div>
 
+                {/* Error message (không ảnh hưởng UI chính) */}
+                {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
+
                 {/* Submit Button */}
-                <button
+                <Button
                     onClick={handleSubmit}
-                    className="group relative w-full overflow-hidden rounded-xl bg-white py-3.5 text-sm font-medium text-black transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
+                    variant={"secondary"}
+                    disabled={loading}
+                    className="w-full p-5"
                 >
-                    <span className="relative z-10">Gửi</span>
-                    <div className="absolute inset-0 bg-linear-to-r from-neutral-100 to-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                </button>
+                    {loading ? (
+                        <div className="text-md flex items-center gap-4">
+                            <Spinner /> Đang gửi...
+                        </div>
+                    ) : (
+                        <span className="relative z-10">Gửi</span>
+                    )}
+                </Button>
             </div>
         </div>
     );

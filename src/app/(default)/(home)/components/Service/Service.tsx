@@ -34,6 +34,7 @@ function Service() {
                             key={service.id}
                             direction="up"
                             delay={index * 0.15}
+                            threshold={0}
                         >
                             <ServiceItem
                                 title={service.title}

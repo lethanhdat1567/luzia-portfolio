@@ -15,12 +15,11 @@ export default function Thumbnail() {
     if (!mounted) return null; // Tránh SSR mismatch
 
     return (
-        <div className="hidden h-120 w-full lg:block">
+        <div className="hidden h-[600px] w-full lg:block">
             <Stack
                 sensitivity={200}
                 sendToBackOnClick={true}
                 autoplay={true}
-                randomRotation={true}
                 cards={imagesData.map((src, i) => (
                     <Image
                         key={i}

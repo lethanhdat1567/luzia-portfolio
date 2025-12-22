@@ -8,7 +8,7 @@ function HomePage() {
     return (
         <div>
             <Hero />
-            <Info />
+            <Info withBg />
             {/* <Feature /> */}
             {/* <Award /> */}
             <Service />

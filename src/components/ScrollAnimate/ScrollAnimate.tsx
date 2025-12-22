@@ -48,7 +48,7 @@ const directionVariants = (direction: Direction): Variants => {
 export default function ScrollAnimate({
     children,
     direction = "up",
-    duration = 1,
+    duration = 0.8,
     delay = 0,
     threshold = 0.2,
 }: ScrollAnimateProps) {
