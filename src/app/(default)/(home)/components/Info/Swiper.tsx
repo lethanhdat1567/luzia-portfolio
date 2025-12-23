@@ -3,9 +3,27 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { imagesData } from "@/app/(default)/(home)/components/Info/data";
+import { useEffect, useState } from "react";
+import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
+import Image from "next/image";
 
 function SwiperWrapper() {
+    const [imagesData, setImagesData] = useState([]);
+
+    useEffect(() => {
+        const http = async () => {
+            const content = await getSheetContent("Home");
+            setImagesData(JSON.parse(content.about_images));
+        };
+
+        http();
+    }, []);
+
+    if (imagesData.length <= 0) return;
+
+    console.log(imagesData);
+
     return (
         <div className="w-full lg:hidden">
             <Swiper
@@ -27,10 +45,12 @@ function SwiperWrapper() {
             >
                 {imagesData.map((img, index) => (
                     <SwiperSlide key={index} className="flex justify-center">
-                        <img
-                            src={img.src}
+                        <Image
+                            src={convertDriveLinkToDirect(img) || ""}
                             alt={`Slide ${index + 1}`}
-                            className="h-auto w-full rounded-lg object-cover shadow-lg"
+                            className="h-full w-full rounded-lg object-cover shadow-lg"
+                            width={600}
+                            height={500}
                         />
                     </SwiperSlide>
                 ))}
