@@ -1,12 +1,15 @@
 "use client";
 
 import { images } from "@/assets/images";
+import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 function Banner() {
     const [scrollY, setScrollY] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [thumbnail, setThumbnail] = useState("");
 
     useEffect(() => {
         // Trigger animation khi component mount
@@ -18,6 +21,15 @@ function Banner() {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const http = async () => {
+            const content = await getSheetContent("Home");
+            setThumbnail(content.hero_avatar);
+        };
+
+        http();
     }, []);
 
     // Tính toán transform dựa trên scroll (rất nhẹ)
@@ -39,14 +51,16 @@ function Banner() {
                 }}
             >
                 <div className="absolute bottom-0 h-full w-full">
-                    <Image
-                        src={images.model}
-                        alt="Le Thanh Dat"
-                        fill
-                        priority
-                        className="object-contain object-top"
-                        sizes="(max-width: 768px) 100vw, 672px"
-                    />
+                    {thumbnail && convertDriveLinkToDirect(thumbnail) && (
+                        <Image
+                            src={convertDriveLinkToDirect(thumbnail) || ""}
+                            alt="Le Thanh Dat"
+                            fill
+                            priority
+                            className="object-contain object-top"
+                            sizes="(max-width: 768px) 100vw, 672px"
+                        />
+                    )}
 
                     {/* Natural blur with decreasing intensity */}
                     <div
