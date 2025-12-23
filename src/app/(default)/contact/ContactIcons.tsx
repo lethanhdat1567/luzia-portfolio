@@ -1,14 +1,28 @@
-import { getSheetContent } from "@/lib/getSheetContent";
+"use client";
 
-export default async function SocialIcons({ small = false }) {
+import { getSheetContent } from "@/lib/getSheetContent";
+import { useEffect, useState } from "react";
+
+export default function SocialIcons({ small = false }) {
     const iconSize = small ? "h-10 w-10" : "h-12 w-12";
     const svgSize = small ? "h-5 w-5" : "h-6 w-6";
+    const [content, setContent] = useState<any>();
 
-    const content = await getSheetContent("Contact");
-    const tiktokLink = content.tiktok_link;
-    const fbLink = content.facebook_link;
-    const igLink = content.ig_link;
-    const zaloLink = content.zalo_link;
+    useEffect(() => {
+        async function fetchData() {
+            const content = await getSheetContent("Contact");
+            setContent(content as any);
+        }
+
+        fetchData();
+    }, []);
+
+    if (!content) return null;
+
+    const tiktokLink = content?.tiktok_link;
+    const fbLink = content?.facebook_link;
+    const igLink = content?.ig_link;
+    const zaloLink = content?.zalo_link;
 
     return (
         <div className="mt-5 flex items-center gap-5">

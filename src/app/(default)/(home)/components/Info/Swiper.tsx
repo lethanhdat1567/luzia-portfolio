@@ -22,8 +22,6 @@ function SwiperWrapper() {
 
     if (imagesData.length <= 0) return;
 
-    console.log(imagesData);
-
     return (
         <div className="w-full lg:hidden">
             <Swiper
