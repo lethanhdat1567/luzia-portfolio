@@ -1,11 +1,10 @@
-import { servicesData } from "@/app/(default)/(home)/components/Service/data";
 import ServiceItem from "@/app/(default)/(home)/components/Service/ServiceItem";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { getSheetContent } from "@/lib/getSheetContent";
 
 async function Service() {
     const content = await getSheetContent("Home");
-    const serviceData = content.service_list || [];
+    const serviceData = JSON.parse(content.service_list) || [];
 
     return (
         <div className="bg-neutral-50 py-16 sm:py-20 lg:py-30">
@@ -26,7 +25,7 @@ async function Service() {
 
                 {/* Service Items Grid */}
                 <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
-                    {servicesData.map((service, index) => (
+                    {serviceData.map((service: any, index: number) => (
                         <ScrollAnimate
                             duration={0.6}
                             key={service.id}
@@ -37,7 +36,7 @@ async function Service() {
                             <ServiceItem
                                 title={service.title}
                                 desc={service.desc}
-                                Icon={service.icon}
+                                icon={service.icon}
                             />
                         </ScrollAnimate>
                     ))}

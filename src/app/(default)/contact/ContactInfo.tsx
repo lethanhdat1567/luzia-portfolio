@@ -70,7 +70,7 @@ async function ContactInfo() {
                 </div>
 
                 {/* CTA Button */}
-                <a href="tel:+84911530101" className="w-full">
+                <a href={`tel:+${contact.phone_number}`} className="w-full">
                     <Button
                         className="mt-auto w-full transition-all duration-300 hover:shadow-xl"
                         size="xl"

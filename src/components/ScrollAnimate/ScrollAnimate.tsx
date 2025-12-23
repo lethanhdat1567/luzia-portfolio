@@ -12,6 +12,7 @@ interface ScrollAnimateProps {
     duration?: number;
     delay?: number;
     threshold?: number; // 0-1
+    className?: string;
 }
 
 const directionVariants = (direction: Direction): Variants => {
@@ -51,6 +52,7 @@ export default function ScrollAnimate({
     duration = 0.8,
     delay = 0,
     threshold = 0.2,
+    className,
 }: ScrollAnimateProps) {
     const ref = useRef<HTMLDivElement>(null);
     const [inViewRef, inView] = useInView({ threshold });
@@ -74,6 +76,7 @@ export default function ScrollAnimate({
             initial="hidden"
             animate={hasAnimated ? "visible" : "hidden"} // chỉ animate 1 lần
             transition={{ duration, delay }}
+            className={className}
         >
             {children}
         </motion.div>

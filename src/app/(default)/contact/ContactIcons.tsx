@@ -1,12 +1,20 @@
-export default function SocialIcons({ small = false }) {
+import { getSheetContent } from "@/lib/getSheetContent";
+
+export default async function SocialIcons({ small = false }) {
     const iconSize = small ? "h-10 w-10" : "h-12 w-12";
     const svgSize = small ? "h-5 w-5" : "h-6 w-6";
+
+    const content = await getSheetContent("Contact");
+    const tiktokLink = content.tiktok_link;
+    const fbLink = content.facebook_link;
+    const igLink = content.ig_link;
+    const zaloLink = content.zalo_link;
 
     return (
         <div className="mt-5 flex items-center gap-5">
             {/* TikTok */}
             <a
-                href="https://tiktok.com"
+                href={tiktokLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex ${iconSize} items-center justify-center rounded-lg bg-black transition-transform duration-300 hover:scale-105`}
@@ -18,7 +26,7 @@ export default function SocialIcons({ small = false }) {
 
             {/* Facebook */}
             <a
-                href="https://facebook.com"
+                href={fbLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex ${iconSize} items-center justify-center rounded-lg bg-[#1877F2] transition-transform duration-300 hover:scale-105`}
@@ -30,7 +38,7 @@ export default function SocialIcons({ small = false }) {
 
             {/* Instagram */}
             <a
-                href="https://instagram.com"
+                href={igLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex ${iconSize} items-center justify-center rounded-lg bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] transition-transform duration-300 hover:scale-105`}
@@ -42,7 +50,7 @@ export default function SocialIcons({ small = false }) {
 
             {/* Zalo */}
             <a
-                href="https://zalo.me"
+                href={zaloLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex ${iconSize} items-center justify-center rounded-lg bg-[#0068FF] transition-transform duration-300 hover:scale-105`}

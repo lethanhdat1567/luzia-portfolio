@@ -36,6 +36,7 @@ async function HowItWork() {
                                     direction={
                                         index % 2 === 1 ? "right" : "left"
                                     } // trái/phải
+                                    className="w-full"
                                 >
                                     <StepItem
                                         index={step.id}
