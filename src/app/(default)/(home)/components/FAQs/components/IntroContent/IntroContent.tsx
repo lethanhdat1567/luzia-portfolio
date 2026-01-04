@@ -13,8 +13,8 @@ async function IntroContent() {
             <div className={styles.intro}>
                 <Quote size={40} className="mb-6" />
                 <p className="text-center text-3xl font-normal">
-                    “Our main goal is to turn complex challenges into clear
-                    strategies that drive growth.”
+                    “Học hỏi mỗi ngày, làm việc bằng sự tận tâm và tạo dựng niềm
+                    tin từ những điều nhỏ nhất.”
                 </p>
                 <div className="mt-10 flex items-center gap-4">
                     <Image

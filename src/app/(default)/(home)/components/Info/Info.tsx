@@ -1,6 +1,3 @@
-import { features } from "@/app/(default)/(home)/components/Info/data";
-import SwiperWrapper from "@/app/(default)/(home)/components/Info/Swiper";
-import Thumbnail from "@/app/(default)/(home)/components/Info/Thumbnail";
 import { images } from "@/assets/images";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { getSheetContent } from "@/lib/getSheetContent";
@@ -15,8 +12,8 @@ async function Info({ withBg }: { withBg?: boolean }) {
         <div
             className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-30`}
         >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
+            <div className="app-container">
+                <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-10">
                     <ScrollAnimate direction="right">
                         <Image
                             src={images.info}
@@ -43,12 +40,11 @@ async function Info({ withBg }: { withBg?: boolean }) {
                             </h2>
                         </ScrollAnimate>
 
-                        <p className="mt-6 text-lg text-neutral-800">
-                            Tôi hoạt động trong lĩnh vực bất động sản nhà ở /
-                            đầu tư, tập trung vào việc tư vấn đúng nhu cầu, đúng
-                            ngân sách, và đồng hành cùng khách hàng trong quyết
-                            định dài hạn.
-                        </p>
+                        <ScrollAnimate direction="left">
+                            <p className="mt-6 text-lg text-neutral-800">
+                                {content.about_desc}
+                            </p>
+                        </ScrollAnimate>
 
                         <div className="mt-8 mb-10 space-y-5">
                             {features.map((feature: any, index: number) => (
@@ -69,7 +65,6 @@ async function Info({ withBg }: { withBg?: boolean }) {
                                 </ScrollAnimate>
                             ))}
                         </div>
-                        <SwiperWrapper />
                     </div>
                 </div>
             </div>

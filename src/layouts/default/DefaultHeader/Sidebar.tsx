@@ -12,8 +12,8 @@ import { sidebarIcon } from "@/assets/icons";
 import { Logo } from "@/components/Logo";
 import { X } from "lucide-react";
 import Link from "next/link";
-import SocialIcons from "@/app/(default)/contact/ContactIcons";
 import { Button } from "@/components/ui/button";
+import SocialIcons from "@/components/SocialIcons";
 
 const navItems = [
     { name: "Trang chủ", href: "/" },

@@ -4,31 +4,31 @@ export const meData = [
     {
         id: 1,
         direction: "left",
-        title: "Tôi đồng hành cùng khách hàng trong việc lựa chọn và giao dịch bất động sản một cách an toàn và minh bạch",
+        title: "Thành tích và quá trình học tập",
         description: [
-            "Với sự am hiểu về thị trường, pháp lý và nhu cầu thực tế của khách hàng, tôi tập trung vào việc tư vấn các dự án, nhà phố và đất nền có tính thanh khoản tốt, pháp lý rõ ràng và giá trị khai thác lâu dài. Mỗi sản phẩm được giới thiệu đều trải qua quá trình sàng lọc và đánh giá kỹ lưỡng trước khi đến tay người mua.",
-            "Trong suốt quá trình làm việc, tôi luôn đặt sự minh bạch, an toàn và lợi ích lâu dài của khách hàng lên hàng đầu. Từ giai đoạn tìm hiểu, lựa chọn sản phẩm cho đến khi hoàn tất giao dịch, tôi cam kết đồng hành và hỗ trợ đầy đủ để khách hàng có thể đưa ra quyết định đúng đắn và phù hợp với mục tiêu của mình.",
+            "Trong quá trình học tập, tôi luôn duy trì tinh thần nghiêm túc, chủ động tiếp thu kiến thức và hoàn thành tốt các môn học liên quan đến kinh doanh và kỹ năng mềm.",
+            "Tôi chú trọng việc rèn luyện tư duy logic, kỹ năng giao tiếp và khả năng làm việc nhóm nhằm xây dựng nền tảng vững chắc cho công việc trong lĩnh vực bất động sản.",
         ],
-        image: images.city3,
+        image: images.image1,
     },
     {
         id: 2,
         direction: "right",
-        title: "Hỗ trợ khách hàng tìm kiếm bất động sản phù hợp với nhu cầu và ngân sách",
+        title: "Trải nghiệm và hoạt động thực tế",
         description: [
-            "Tôi giúp khách hàng lựa chọn các căn nhà, dự án và đất nền phù hợp với nhu cầu thực tế và khả năng tài chính, đảm bảo lựa chọn an toàn và hiệu quả.",
-            "Mỗi sản phẩm được kiểm tra pháp lý và đánh giá kỹ lưỡng trước khi giới thiệu để khách hàng yên tâm khi giao dịch.",
+            "Thông qua các hoạt động học tập, làm việc nhóm và quá trình thực tập, tôi có cơ hội tiếp cận môi trường làm việc thực tế, học cách phối hợp với đồng đội và tuân thủ kỷ luật công việc.",
+            "Những trải nghiệm này giúp tôi nâng cao tinh thần trách nhiệm, khả năng thích nghi và chủ động trong việc học hỏi từ thực tiễn.",
         ],
-        image: images.city1,
+        image: images.image2,
     },
     {
         id: 3,
         direction: "left",
-        title: "Đồng hành trong toàn bộ quá trình giao dịch, từ khảo sát đến bàn giao",
+        title: "Thể thao và phát triển bản thân",
         description: [
-            "Tôi luôn đồng hành cùng khách hàng, hỗ trợ các thủ tục pháp lý và hợp đồng, đảm bảo mọi bước diễn ra minh bạch và an toàn.",
-            "Mục tiêu là giúp khách hàng đưa ra quyết định đúng đắn, đồng thời trải nghiệm giao dịch thuận tiện và chuyên nghiệp.",
+            "Tôi duy trì thói quen tham gia các hoạt động thể thao nhằm rèn luyện sức khỏe, sự bền bỉ và tinh thần kỷ luật.",
+            "Thể thao giúp tôi giữ được tinh thần tích cực, khả năng chịu áp lực và sự tập trung — những yếu tố quan trọng trong học tập và công việc.",
         ],
-        image: images.city2,
+        image: images.image3,
     },
 ];

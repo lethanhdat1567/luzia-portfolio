@@ -1,9 +1,9 @@
 import FAQs from "@/app/(default)/(home)/components/FAQs/FAQs";
-import Info from "@/app/(default)/(home)/components/Info/Info";
-import AboutComment from "@/app/(default)/about/components/Comment/Comment";
 import Experiment from "@/app/(default)/about/components/Experiment/Experiment";
+import Gallery from "@/app/(default)/about/components/Gallery/Gallery";
+import { meData } from "@/app/(default)/about/components/Me/data";
 import Me from "@/app/(default)/about/components/Me/Me";
-import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import Profile from "@/app/(default)/about/components/Profile/Profile";
 import { getSheetContent } from "@/lib/getSheetContent";
 
 async function About() {
@@ -13,17 +13,9 @@ async function About() {
 
     return (
         <div className="pt-30">
-            <div className="app-container">
-                <ScrollAnimate direction="down">
-                    <p className="mb-10 max-w-3xl text-xl font-medium text-gray-500 sm:text-2xl lg:text-4xl">
-                        {content.info_title}
-                    </p>
-                </ScrollAnimate>
-            </div>
-            <AboutComment />
-            <Info />
+            <Profile />
             <Experiment />
-            {companyList.map((item: any, index: number) => (
+            {meData.map((item: any, index: number) => (
                 <Me
                     key={item.id}
                     direction={item.direction}
@@ -33,7 +25,7 @@ async function About() {
                     index={index}
                 />
             ))}
-            <FAQs />
+            <Gallery />
         </div>
     );
 }

@@ -1,47 +1,40 @@
-import {
-    ClipboardCheck,
-    Home,
-    Search,
-    ShieldCheck,
-    TrendingUp,
-    Users,
-} from "lucide-react";
+"use client";
 
-export const servicesData = [
+// services.mock.ts
+import { Target, Home, Briefcase, Users } from "lucide-react";
+import { images } from "@/assets/images";
+
+export const services = [
     {
-        id: "1",
-        title: "Khai thác Nguồn nhà",
-        desc: "Cung cấp danh mục bất động sản đa dạng, vị trí đắc địa tại khu vực Quận 6 và các vùng lân cận TP.HCM.",
+        id: "strategy",
+        title: "Chiến lược kinh doanh",
+        description:
+            "Xây dựng chiến lược rõ ràng, khả thi và phù hợp với định hướng phát triển, giúp tối ưu hiệu quả và tạo lợi thế cạnh tranh bền vững.",
+        icon: Target,
+        images: [images.banner, images.banner, images.banner, images.banner],
+    },
+    {
+        id: "real-estate",
+        title: "Tư vấn bất động sản",
+        description:
+            "Cung cấp thông tin thị trường, phân tích dự án và tư vấn đầu tư bất động sản dựa trên nhu cầu và mục tiêu dài hạn của khách hàng.",
         icon: Home,
+        images: [images.banner, images.banner, images.banner],
     },
     {
-        id: "2",
-        title: "Tư vấn Đầu tư",
-        desc: "Phân tích thị trường và tư vấn các phương án đầu tư an toàn, mang lại lợi nhuận bền vững cho khách hàng.",
-        icon: TrendingUp,
+        id: "sales",
+        title: "Bán hàng & đàm phán",
+        description:
+            "Hỗ trợ kỹ năng bán hàng, tư vấn tâm lý khách hàng và chiến lược đàm phán nhằm gia tăng tỷ lệ chốt giao dịch.",
+        icon: Briefcase,
+        images: [images.banner, images.banner],
     },
     {
-        id: "3",
-        title: "Chăm sóc & Kết nối",
-        desc: "Cầu nối uy tín giữa người mua và người bán, đảm bảo giao dịch diễn ra nhanh chóng và thuận lợi.",
+        id: "network",
+        title: "Kết nối khách hàng",
+        description:
+            "Xây dựng và mở rộng mạng lưới khách hàng, đối tác thông qua giao tiếp minh bạch, uy tín và mối quan hệ lâu dài.",
         icon: Users,
-    },
-    {
-        id: "4",
-        title: "Hỗ trợ Pháp lý",
-        desc: "Tư vấn và hỗ trợ thực hiện các thủ tục giấy tờ, chuyển nhượng quyền sử dụng đất đúng quy định pháp luật.",
-        icon: ShieldCheck,
-    },
-    {
-        id: "5",
-        title: "Thẩm định Giá",
-        desc: "Hỗ trợ khách hàng đánh giá giá trị thực tế của bất động sản để có quyết định mua bán chính xác nhất.",
-        icon: Search,
-    },
-    {
-        id: "6",
-        title: "Ký gửi Bất động sản",
-        desc: "Nhận ký gửi nhà đất với quy trình chuyên nghiệp, giúp tài sản của bạn tiếp cận đúng khách hàng tiềm năng.",
-        icon: ClipboardCheck,
+        images: [images.banner, images.banner, images.banner],
     },
 ];

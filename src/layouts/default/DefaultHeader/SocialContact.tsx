@@ -1,8 +1,4 @@
-import SocialIcons from "@/app/(default)/contact/ContactIcons";
-import { images } from "@/assets/images";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
+import SocialIcons from "@/components/SocialIcons";
 
 function SocialContact() {
     return (

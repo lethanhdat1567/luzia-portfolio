@@ -54,14 +54,15 @@ function Me({ direction = "left", title, description, image, index }: MeProps) {
                         ref={cardRef}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
-                        className="group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:ring-amber-500/20"
+                        className="group relative h-120 w-full overflow-hidden rounded-3xl ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:ring-amber-500/20"
                         style={{
                             transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
                             transition: "transform 0.1s ease-out",
                         }}
                     >
                         <Image
-                            src={convertDriveLinkToDirect(image) || ""}
+                            // src={convertDriveLinkToDirect(image) || ""}
+                            src={image}
                             alt={title}
                             fill
                             priority

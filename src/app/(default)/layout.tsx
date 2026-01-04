@@ -9,7 +9,7 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
             <LenisWrapper>
                 <DefaultHeader />
                 <div>{children}</div>
-                <FooterBanner />
+                {/* <FooterBanner /> */}
                 <DefaultFooter />
             </LenisWrapper>
         </div>

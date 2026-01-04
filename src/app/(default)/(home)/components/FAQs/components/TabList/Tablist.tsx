@@ -30,7 +30,7 @@ const aboutMindsetData = [
 
 export default function Tabs() {
     return (
-        <div className="space-y-4">
+        <div>
             {aboutMindsetData.map((item, index) => (
                 <TabItem
                     key={index}

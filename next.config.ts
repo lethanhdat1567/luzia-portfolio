@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "drive.google.com",
                 port: "",
-                pathname: "/uc**", // dùng direct link kiểu /uc?export=view&id=...
+                pathname: "/uc**",
             },
         ],
     },
