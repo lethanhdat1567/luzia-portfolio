@@ -1,20 +1,19 @@
 import Particles from "@/components/Particles";
 import { Button } from "@/components/ui/button";
+import { getSheetContent } from "@/lib/getSheetContent";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-function CTA() {
+async function CTA() {
+    const content = await getSheetContent("Home");
+
     return (
         <div className="relative h-[60vh] w-screen bg-black text-white">
-            <div className="absolute top-1/2 left-1/2 z-999999 mx-auto max-w-2xl -translate-1/2 text-center">
+            <div className="absolute top-1/2 left-1/2 z-999 mx-auto max-w-2xl -translate-1/2 text-center">
                 <h2 className="mb-6 text-3xl font-semibold">
-                    Tôi là Nguyên Tuấn Phát — Thực tập sinh Bất động sản
+                    {content.cta_title}
                 </h2>
-                <p className="text-md mb-10">
-                    Tôi đang học hỏi và tích lũy kinh nghiệm trong lĩnh vực bất
-                    động sản, mong muốn được kết nối, học tập và phát triển cùng
-                    các anh chị trong ngành.
-                </p>
+                <p className="text-md mb-10">{content.cta_desc}</p>
                 <Link href={"/about"}>
                     <Button
                         variant={"outline"}
@@ -32,7 +31,7 @@ function CTA() {
                 particleSpread={10}
                 speed={0.1}
                 particleBaseSize={100}
-                moveParticlesOnHover={true}
+                moveParticlesOnHover={false}
                 alphaParticles={false}
                 disableRotation={false}
             />

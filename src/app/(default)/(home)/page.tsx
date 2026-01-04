@@ -11,7 +11,7 @@ async function HomePage() {
             <Info withBg />
             <Service />
             <FAQs />
-            <CTA />
+            {/* <CTA /> */}
         </div>
     );
 }

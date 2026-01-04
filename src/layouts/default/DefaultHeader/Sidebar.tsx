@@ -18,7 +18,6 @@ import SocialIcons from "@/components/SocialIcons";
 const navItems = [
     { name: "Trang chủ", href: "/" },
     { name: "Giới thiệu", href: "/about" },
-    { name: "Liên hệ", href: "/contact" },
 ];
 
 function Sidebar() {
@@ -60,9 +59,11 @@ function Sidebar() {
                         </li>
                     ))}
                 </ul>
-                <SocialIcons small />
+                <div className="mt-5">
+                    <SocialIcons small />
+                </div>
                 <Button size="lg" className="mt-7 py-6" onClick={closeDrawer}>
-                    Tư vấn ngay
+                    Tìm hiểu thêm về tôi
                 </Button>
             </DrawerContent>
         </Drawer>

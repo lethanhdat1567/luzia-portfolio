@@ -61,8 +61,7 @@ function Me({ direction = "left", title, description, image, index }: MeProps) {
                         }}
                     >
                         <Image
-                            // src={convertDriveLinkToDirect(image) || ""}
-                            src={image}
+                            src={convertDriveLinkToDirect(image) || ""}
                             alt={title}
                             fill
                             priority

@@ -1,6 +1,7 @@
 import { images } from "@/assets/images";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { getSheetContent } from "@/lib/getSheetContent";
+import { convertDriveLinkToDirect } from "@/lib/upload";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
@@ -10,13 +11,17 @@ async function Info({ withBg }: { withBg?: boolean }) {
 
     return (
         <div
-            className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-30`}
+            className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-20 md:py-30`}
         >
             <div className="app-container">
                 <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-10">
                     <ScrollAnimate direction="right">
                         <Image
-                            src={images.info}
+                            src={
+                                convertDriveLinkToDirect(
+                                    content.about_avatar,
+                                ) || ""
+                            }
                             width={500}
                             height={700}
                             alt="Nguyễn Tuấn Phát"
@@ -41,7 +46,7 @@ async function Info({ withBg }: { withBg?: boolean }) {
                         </ScrollAnimate>
 
                         <ScrollAnimate direction="left">
-                            <p className="mt-6 text-lg text-neutral-800">
+                            <p className="text-md mt-6 text-neutral-800 md:text-lg">
                                 {content.about_desc}
                             </p>
                         </ScrollAnimate>

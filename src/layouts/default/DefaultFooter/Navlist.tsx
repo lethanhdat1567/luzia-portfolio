@@ -27,7 +27,6 @@ function Navlist() {
     const menus = [
         { title: "Trang chủ", href: "/" },
         { title: "Giới thiệu", href: "/about" },
-        { title: "Liên hệ", href: "/contact" },
     ];
 
     const contacts: LinkItem[] = [

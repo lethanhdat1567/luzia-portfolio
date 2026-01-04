@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { services } from "@/app/(default)/(home)/components/Service/data";
 import ServiceItem from "@/app/(default)/(home)/components/Service/ServiceItem";
 import { getSheetContent } from "@/lib/getSheetContent";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
@@ -13,6 +12,7 @@ type HomeContent = {
 
 function Service() {
     const [content, setContent] = useState<HomeContent>({});
+    const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -20,6 +20,7 @@ function Service() {
             try {
                 const data = await getSheetContent("Home");
                 setContent(data || {});
+                setServices(JSON.parse(data.service_list) || []);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -39,8 +40,8 @@ function Service() {
     }
 
     return (
-        <section className="py-20 sm:py-24 lg:py-30">
-            <div className="mx-auto max-w-7xl px-6 lg:px-30">
+        <section className="py-20 md:py-30">
+            <div className="mx-auto max-w-7xl px-4 md:px-30">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center text-center">
                     <ScrollAnimate direction="down">
@@ -58,7 +59,7 @@ function Service() {
 
                 {/* Service Items */}
                 <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-14 lg:gap-8">
-                    {services.map((service, index) => (
+                    {services.map((service: any, index) => (
                         <ScrollAnimate
                             key={service.id}
                             direction="up"

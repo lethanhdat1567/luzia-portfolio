@@ -1,23 +1,25 @@
 import IntroContent from "@/app/(default)/(home)/components/FAQs/components/IntroContent/IntroContent";
 import TabList from "@/app/(default)/(home)/components/FAQs/components/TabList/Tablist";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
+import { getSheetContent } from "@/lib/getSheetContent";
 
-function FAQs() {
+async function FAQs() {
+    const content = await getSheetContent("Home");
+
     return (
-        <section className="bg-white py-20 sm:py-24 lg:py-30">
-            <div className="px-6 lg:px-30">
+        <section className="bg-white py-20 md:py-30">
+            <div className="px-6 md:px-30">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center text-center">
                     <ScrollAnimate direction="down">
                         <h2 className="mb-4 text-2xl font-semibold text-neutral-800 sm:text-3xl lg:text-4xl">
-                            Điểm mạnh của tôi
+                            {content.faq_title}
                         </h2>
                     </ScrollAnimate>
 
                     <ScrollAnimate direction="down" delay={0.2}>
                         <p className="max-w-3xl text-sm font-medium text-neutral-500 sm:text-base lg:text-lg">
-                            Những năng lực cốt lõi định hình cách tôi làm việc
-                            và tạo ra giá trị.
+                            {content.faq_subtitle}
                         </p>
                     </ScrollAnimate>
                 </div>
