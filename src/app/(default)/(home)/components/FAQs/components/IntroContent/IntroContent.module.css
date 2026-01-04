@@ -1,0 +1,13 @@
+.intro {
+    padding: 30px;
+    border-radius: 10px;
+    background-image: url("../../../../../../../assets/images/uploads/banne.jpg");
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

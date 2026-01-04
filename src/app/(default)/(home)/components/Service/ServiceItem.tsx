@@ -1,43 +1,70 @@
 "use client";
 
-import {
-    BookOpen,
-    TrendingUp,
-    Dumbbell,
-    Microscope,
-    Briefcase,
-    HeartHandshake,
-    HelpCircle,
-} from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Target } from "lucide-react";
+import Image from "next/image";
+import { images } from "@/assets/images";
+import { Autoplay } from "swiper/modules";
 
-const iconMap = {
-    BookOpen,
-    TrendingUp,
-    Dumbbell,
-    Microscope,
-    Briefcase,
-    HeartHandshake,
-} as const;
-
-type IconName = keyof typeof iconMap;
-
-type Props = {
-    title: string;
-    desc: string;
-    icon: IconName;
-};
-
-function ServiceItem({ title, desc, icon }: Props) {
-    const Icon = iconMap[icon] ?? HelpCircle;
-
+function ServiceItem() {
     return (
-        <div className="h-full w-full rounded-2xl border border-transparent bg-gray-100 p-6 transition-all">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
-                <Icon size={24} />
+        <div className="rounded-xl border-2 border-white bg-[#F5F5EB] p-4">
+            <span className="flex h-16 w-16 items-center justify-center rounded-sm bg-black/10">
+                <Target size={26} color="#0e3a27" />
             </span>
-
-            <h2 className="my-4 text-xl font-bold text-gray-800">{title}</h2>
-            <p className="leading-relaxed text-gray-800">{desc}</p>
+            <h3 className="my-3 text-xl font-medium">Business Strategy</h3>
+            <p className="mb-6 text-sm">
+                Crafting clear, actionable strategies that align with your
+                vision, ensuring sustainable growth and a competitive edge.
+            </p>
+            <Swiper
+                spaceBetween={10}
+                slidesPerView={2}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
+                className="hover:cursor-grab"
+            >
+                <SwiperSlide>
+                    <Image
+                        className="h-50 w-full rounded-md object-cover"
+                        src={images.banner}
+                        width={500}
+                        height={500}
+                        alt="Fallback"
+                    />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image
+                        className="h-50 w-full rounded-md object-cover"
+                        src={images.banner}
+                        width={500}
+                        height={500}
+                        alt="Fallback"
+                    />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image
+                        className="h-50 w-full rounded-md object-cover"
+                        src={images.banner}
+                        width={500}
+                        height={500}
+                        alt="Fallback"
+                    />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image
+                        className="h-50 w-full rounded-md object-cover"
+                        src={images.banner}
+                        width={500}
+                        height={500}
+                        alt="Fallback"
+                    />
+                </SwiperSlide>
+            </Swiper>
         </div>
     );
 }

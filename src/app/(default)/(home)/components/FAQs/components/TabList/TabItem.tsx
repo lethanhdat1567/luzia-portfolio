@@ -7,22 +7,28 @@ import { motion, AnimatePresence } from "framer-motion";
 type TabItemProps = {
     question: string;
     answer: string;
-    index: number;
+    defaultOpen?: boolean;
 };
 
-function TabItem({ question, answer, index }: TabItemProps) {
-    const [open, setOpen] = useState(() => (index === 0 ? true : false));
+export default function TabItem({
+    question,
+    answer,
+    defaultOpen,
+}: TabItemProps) {
+    const [open, setOpen] = useState(!!defaultOpen);
 
     return (
         <div
-            className="cursor-pointer rounded-2xl bg-white p-4"
+            className="cursor-pointer rounded-2xl p-4"
             onClick={() => setOpen(!open)}
         >
+            {/* Header */}
             <div className="flex items-center justify-between gap-4">
                 <span className="text-md text-left font-medium text-black sm:text-lg">
                     {question}
                 </span>
 
+                {/* Icon rotate */}
                 <motion.span
                     animate={{ rotate: open ? 45 : 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
@@ -35,6 +41,7 @@ function TabItem({ question, answer, index }: TabItemProps) {
                 </motion.span>
             </div>
 
+            {/* Body */}
             <AnimatePresence initial={false}>
                 {open && (
                     <motion.div
@@ -53,5 +60,3 @@ function TabItem({ question, answer, index }: TabItemProps) {
         </div>
     );
 }
-
-export default TabItem;

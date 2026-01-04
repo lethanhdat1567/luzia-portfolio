@@ -14,6 +14,10 @@ import cityBanner from "./uploads/photo-1513061379709-ef0cd1695189.jpg";
 import city1 from "./uploads/f80ac725508be674a5017d8cd3f2fcba.jpg";
 import city2 from "./uploads/3a9cffeefc09200edab7dd5f200470be.jpg";
 import city3 from "./uploads/build-4.jpg";
+import facebook from "./uploads/facebook-logo.png";
+import tiktok from "./uploads/tik-tok.png";
+import instagram from "./uploads/instagram.png";
+import zalo from "./uploads/zalo.png";
 
 export const images = {
     smallAvatar,
@@ -32,4 +36,8 @@ export const images = {
     city2,
     city3,
     cityBanner,
+    facebook,
+    tiktok,
+    instagram,
+    zalo,
 };

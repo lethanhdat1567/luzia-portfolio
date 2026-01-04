@@ -1,35 +1,44 @@
-import TabItem from "@/app/(default)/(home)/components/FAQs/components/TabList/TabItem";
-import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
-import { Button } from "@/components/ui/button";
-import { getSheetContent } from "@/lib/getSheetContent";
+import TabItem from "./TabItem";
 
-async function TabList() {
-    const content = await getSheetContent("Home");
-    const faqs = JSON.parse(content.faq_question) || [];
+const aboutMindsetData = [
+    {
+        title: "Định hướng phát triển",
+        content:
+            "Tôi mong muốn học hỏi và phát triển lâu dài trong lĩnh vực bất động sản, bắt đầu từ việc hiểu thị trường, sản phẩm và quy trình làm việc thực tế.",
+    },
+    {
+        title: "Tinh thần học hỏi",
+        content:
+            "Tôi chủ động tìm hiểu kiến thức mới, sẵn sàng tiếp thu góp ý và không ngại bắt đầu từ những công việc cơ bản.",
+    },
+    {
+        title: "Thái độ làm việc",
+        content:
+            "Tôi đề cao sự kỷ luật, trách nhiệm và cam kết hoàn thành công việc được giao đúng thời hạn.",
+    },
+    {
+        title: "Giá trị mang lại",
+        content:
+            "Tôi mong muốn hỗ trợ đội nhóm bằng sự chăm chỉ, khả năng tổng hợp thông tin và tinh thần hợp tác.",
+    },
+    {
+        title: "Mục tiêu khi thực tập",
+        content:
+            "Tích lũy kinh nghiệm thực tế, hiểu sâu hơn về nghề và tạo nền tảng vững chắc cho sự nghiệp bất động sản sau này.",
+    },
+];
 
+export default function Tabs() {
     return (
-        <ScrollAnimate direction="scale">
-            <div className="rounded-4xl bg-neutral-100 px-2 py-8 text-center sm:px-4">
-                <Button
-                    size="default"
-                    className="mb-4 cursor-default rounded-2xl p-5 shadow"
-                >
-                    Giải đáp những thắc mắc
-                </Button>
-
-                <div className="space-y-2">
-                    {faqs.map((item: any, index: number) => (
-                        <TabItem
-                            key={item.id}
-                            question={item.question}
-                            answer={item.answer}
-                            index={index}
-                        />
-                    ))}
-                </div>
-            </div>
-        </ScrollAnimate>
+        <div className="space-y-4">
+            {aboutMindsetData.map((item, index) => (
+                <TabItem
+                    key={index}
+                    question={item.title}
+                    answer={item.content}
+                    defaultOpen={index === 0}
+                />
+            ))}
+        </div>
     );
 }
-
-export default TabList;

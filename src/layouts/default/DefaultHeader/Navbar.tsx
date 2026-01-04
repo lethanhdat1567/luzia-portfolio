@@ -11,11 +11,10 @@ function Navbar() {
     const navItems = [
         { name: "Trang chủ", href: "/" },
         { name: "Giới thiệu", href: "/about" },
-        { name: "Liên hệ", href: "/contact" },
     ];
 
     return (
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="ml-36 hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
                 const isActive = pathname === item.href;
 

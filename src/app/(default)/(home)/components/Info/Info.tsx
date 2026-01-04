@@ -1,9 +1,11 @@
 import { features } from "@/app/(default)/(home)/components/Info/data";
 import SwiperWrapper from "@/app/(default)/(home)/components/Info/Swiper";
 import Thumbnail from "@/app/(default)/(home)/components/Info/Thumbnail";
+import { images } from "@/assets/images";
 import ScrollAnimate from "@/components/ScrollAnimate/ScrollAnimate";
 import { getSheetContent } from "@/lib/getSheetContent";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 async function Info({ withBg }: { withBg?: boolean }) {
     const content = await getSheetContent("Home");
@@ -11,12 +13,18 @@ async function Info({ withBg }: { withBg?: boolean }) {
 
     return (
         <div
-            className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-20`}
+            className={`${withBg ? "bg-linear-to-b from-neutral-50 to-amber-50/30" : ""} py-30`}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+                <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
                     <ScrollAnimate direction="right">
-                        <Thumbnail />
+                        <Image
+                            src={images.info}
+                            width={500}
+                            height={700}
+                            alt="Nguyễn Tuấn Phát"
+                            className="h-150 w-full rounded-sm object-cover"
+                        />
                     </ScrollAnimate>
                     {/* Content Section */}
                     <div className="order-1 lg:order-2">
@@ -27,14 +35,20 @@ async function Info({ withBg }: { withBg?: boolean }) {
                         </ScrollAnimate>
 
                         <ScrollAnimate direction="left">
-                            <h2 className="text-3xl leading-tight font-bold text-gray-900 uppercase md:text-4xl lg:text-5xl">
+                            <h2 className="text-3xl leading-tight font-bold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
                                 {content.about_title}
-                                <br className="hidden lg:block" />
                                 <span className="ml-2 bg-linear-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
                                     {content.about_hightlight}
                                 </span>
                             </h2>
                         </ScrollAnimate>
+
+                        <p className="mt-6 text-lg text-neutral-800">
+                            Tôi hoạt động trong lĩnh vực bất động sản nhà ở /
+                            đầu tư, tập trung vào việc tư vấn đúng nhu cầu, đúng
+                            ngân sách, và đồng hành cùng khách hàng trong quyết
+                            định dài hạn.
+                        </p>
 
                         <div className="mt-8 mb-10 space-y-5">
                             {features.map((feature: any, index: number) => (
